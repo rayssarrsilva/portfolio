@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rayssa — Desenvolvedora Fullstack Júnior</title>
+  <meta name="description" content="Portfólio one-page de Rayssa — Desenvolvedora Fullstack Júnior. Projetos com deploy, skills e contato." />
+  <meta name="theme-color" content="#F4EFE7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* ================== THEME — Clean Girl Developer ================== */
+    :root{
+    --bg:#FAF9F7;
+    --panel:#FFFFFF;
+    --panel-2:#F7F5F1;
+    --muted:#374151;   /* atualizado */
+    --text:#111827;    /* atualizado */
+    --brand:#E7CFA3;
+    --brand-weak:#F2E7CD;
+    --ring:rgba(231,207,163,.35);
+    --card:#FFFFFF;
+    --radius:14px;
+    --shadow:0 12px 28px rgba(17,24,39,.12); /* atualizado */
+    }
+    .proj-desc{color:#374151;}
+    .proj-link, .control{
+    background:#FFF;
+    color:#111827;
+    border:1px solid var(--brand);
+    font-weight:500;
+    }
+    .proj-link:hover, .control:hover{
+    background:var(--brand-weak);
+    border-color:var(--brand);
+    }
+    .role-badge{
+    background:rgba(231,207,163,.25);
+    border:1px solid var(--brand);
+    color:#5C4522;
+    }
+    /* === HOVERS personalizados === */
+.nav a.btn:hover{
+  border-color:var(--brand);
+  background:var(--brand-weak);
+  color:#5C4522;
+  box-shadow:0 0 0 4px var(--ring);
+  transition:all .25s ease;
+}
+.hero h1:hover{
+  color:var(--brand);
+  transition:color .25s ease;
+}
+.muted strong:hover{
+  color:#9A7B4F;
+  transition:color .25s ease;
+}
+.chip:hover{
+  background:var(--brand-weak);
+  border-color:var(--brand);
+  color:#111827;
+  transition:all .25s ease;
+}
+.role-badge:hover{
+  background:var(--brand);
+  color:#FFF;
+  transition:all .25s ease;
+}
+.proj-title:hover{
+  color:var(--brand);
+  transition:color .25s ease;
+}
+.proj-tag:hover{
+  background:var(--brand-weak);
+  border-color:var(--brand);
+  color:#111827;
+  transition:all .25s ease;
+}
+.proj-link, .control{
+  background:#FFF;
+  color:#111827;
+  border:1px solid var(--brand);
+  font-weight:500;
+  transition:all .25s ease;
+}
+.proj-link:hover, .control:hover{
+  background:var(--brand-weak);
+  border-color:var(--brand);
+  color:#5C4522;
+  box-shadow:0 0 0 4px var(--ring);
+}
+
+
+  /* ================== BASE ================== */
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;scroll-behavior:smooth}
+  html{line-height:1.5}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    background:
+      radial-gradient(120% 100% at 0% 0%, rgba(231,207,163,.10), transparent 60%),
+      radial-gradient(120% 100% at 100% 100%, rgba(231,207,163,.08), transparent 60%),
+      var(--bg);
+    color:var(--text);
+  }
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--brand); outline-offset:2px; border-radius:8px}
+
+  .container{max-width:1100px;margin:0 auto;padding:24px 20px}
+  .section{padding:32px 0}
+  .section h2{font-size:22px;margin:0 0 12px}
+  .muted{color:var(--muted)}
+
+  /* ================== HEADER ================== */
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(1.15) blur(10px);
+    background:rgba(255,255,255,.75);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav{display:flex;align-items:center;gap:10px;padding:10px 0;justify-content:center;flex-wrap:wrap}
+  .nav a.btn{
+    padding:8px 14px;border:1px solid var(--hairline);border-radius:12px;background:var(--panel);box-shadow:var(--shadow);
+  }
+  .btn:hover{border-color:rgba(231,207,163,.6);box-shadow:0 0 0 6px var(--ring)}
+
+  /* ================== HERO ================== */
+  .hero{
+    display:grid; grid-template-columns:1.2fr .8fr;
+    gap:28px; align-items:center; padding:48px 0 32px; margin-bottom:8px;
+  }
+  .hero h1{font-size:42px; line-height:1.1; margin:0 0 10px}
+  .hero p{color:var(--muted); margin:8px 0 14px}
+  .role-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(231,207,163,.18); border:1px solid rgba(231,207,163,.5);
+    color:#7A6339; padding:8px 12px; border-radius:999px; font-weight:600;
+    box-shadow:var(--shadow);
+  }
+  .stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .chip{
+    padding:6px 10px;border-radius:999px;background:#FFF;border:1px solid var(--hairline);
+    font-size:12px;color:#374151; box-shadow:var(--shadow)
+  }
+
+  /* REMOVIDO: partículas/rabisco do fundo */
+  /* #particles canvas e JS foram removidos para visual clean */
+
+  @media (max-width:640px){ .hero{ grid-template-columns:1fr } .hero h1{ font-size:30px } }
+
+  /* ================== PROJETOS — FAIXAS CLEAN ================== */
+  .projects-lead{margin-bottom:8px}
+  .proj-band{
+    width:100vw; position:relative; left:50%; right:50%;
+    margin:28px 0 0 -50vw; padding:56px 0;
+    background:linear-gradient(180deg, var(--panel-2), #FFFFFF);
+    border-top:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+  }
+  .proj-inner{
+    max-width:1100px; margin:0 auto; padding:0 20px;
+    display:grid;
+    grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr);
+    gap:28px; align-items:center; color:#111827;
+  }
+  .proj-inner > * { min-width:0; }
+
+  .proj-media{
+    position:relative; z-index:0;
+    border-radius:18px; overflow:hidden;
+    border:1px solid var(--hairline);
+    background:#FFF; box-shadow:0 16px 40px rgba(17,24,39,.08);
+    aspect-ratio:16/9; min-height:380px; max-width:100%;
+  }
+  .proj-content{ position:relative; z-index:2; }
+  @media (max-width:960px){ .proj-inner{ grid-template-columns:1fr; } .proj-media{ min-height:260px } }
+
+  .proj-media img{ width:100%; height:100%; object-fit:cover; display:block }
+  .proj-title{font-size:24px; margin:0 0 6px; color:#111827}
+  .proj-desc{color:#4B5563; margin:0 0 14px}
+  .proj-tags{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 16px}
+  .proj-tag{
+    font-size:12px; padding:6px 10px; border-radius:999px;
+    background:#FFF; color:#374151; border:1px solid rgba(231,207,163,.45); box-shadow:var(--shadow)
+  }
+  .proj-links{display:flex; gap:10px}
+  .proj-link{
+    font-size:13px; padding:10px 14px; border-radius:999px;
+    background:#FFF; color:#111827; border:1px solid rgba(231,207,163,.6);
+    text-decoration:none; box-shadow:var(--shadow)
+  }
+  .proj-link:hover{border-color:#D5B984}
+
+  /* ================== ABOUT / SKILLS ================== */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .panel{background:var(--panel);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+  .band{
+    width:100vw; position:relative; left:50%; right:50%;
+    margin-left:-50vw; margin-right:-50vw;
+    padding:40px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
+  }
+  .band .container{max-width:1100px}
+  .band--skills{ background:linear-gradient(180deg,#FFFFFF,#F7F5F1) }
+  .band--about{  background:linear-gradient(180deg,#FFFFFF,#F7F5F1) }
+
+  #skills .muted{ margin:0 0 16px }
+  .skills-map{
+    position:relative; border-radius:18px;
+    border:1px solid var(--hairline);
+    background:
+      radial-gradient(100% 120% at 0% 0%,rgba(231,207,163,.10),transparent 60%),
+      radial-gradient(100% 120% at 100% 100%,rgba(231,207,163,.08),transparent 60%),
+      var(--panel);
+    padding:16px; min-height:420px;
+  }
+  .skill-node{
+    position:absolute; padding:10px 12px; border-radius:999px;
+    background:#FFF; color:#374151; border:1px solid rgba(231,207,163,.45);
+    box-shadow:0 6px 18px rgba(17,24,39,.08); font-size:14px; cursor:pointer;
+  }
+  .tooltip{
+    position:absolute; transform:translate(-50%,-120%);
+    background:#111827; color:#fff; padding:8px 10px; border-radius:10px;
+    font-size:12px; white-space:nowrap; display:none;
+  }
+  .tooltip.down{ transform:translate(-50%,20%) }
+
+  /* MATRIX — desativado no clean */
+  .band--matrix{ display:none; }
+
+  /* ================== FORM / FOOTER ================== */
+  form input,form textarea{
+    width:100%; padding:10px; border-radius:10px;
+    border:1px solid var(--hairline); background:var(--panel); color:var(--text); box-shadow:var(--shadow)
+  }
+  .control{
+    padding:10px 14px;border:1px solid rgba(231,207,163,.6);border-radius:10px;background:#FFF;cursor:pointer;
+    box-shadow:var(--shadow)
+  }
+  .control:hover{border-color:#D5B984;box-shadow:0 0 0 6px var(--ring)}
+
+  footer{padding:20px 0;color:#6B7280;border-top:1px solid var(--hairline);margin-top:24px;background:#FFF}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <nav class="nav-links" aria-label="primary">
+        <a class="btn" href="#projetos">Projetos</a>
+        <a class="btn" href="#skills">Skills</a>
+        <a class="btn" href="#sobre">Sobre</a>
+        <a class="btn" href="#contato">Contato</a>
+        <a class="btn" href="https://github.com/rayssarrsilva?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/rayssa-r-14936622a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="title-hero">
+      <!-- REMOVIDO: <canvas id="particles"></canvas> -->
+      <div>
+        <h1 id="title-hero">Rayssa Roberta Rodrigues Silva</h1>
+        <p class="role-badge">Desenvolvedora Fullstack Júnior</p>
+
+        <p class="muted">Soft skills que me definem: <strong id="typing"></strong></p>
+        <div class="stack" aria-label="tecnologias">
+          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+          <span class="chip">Python</span><span class="chip">Django</span><span class="chip">Node.js</span>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="control" href="#projetos">Ver Projetos</a>
+          <a class="control" href="#contato">Falar comigo</a>
+        </div>
+      </div>
+
+      <!-- avatar foto circular -->
+      <div style="display:flex;justify-content:center;align-items:center">
+        <img src="foto/foto_minha.jpg" alt="Foto minha"
+             style="width:180px;height:180px;border-radius:50%;
+                    object-fit:cover;border:4px solid #FFFFFF;
+                    box-shadow:0 10px 24px rgba(17,24,39,.08);">
+      </div>
+    </section>
+  </main>
+
+  <!-- PROJETOS (faixas) -->
+  <section id="projetos" class="section">
+    <div class="container"></div>
+    <div id="projectsBands"></div>
+  </section>
+
+  <!-- SKILLS MAP -->
+  <section class="band band--skills" id="skills">
+    <div class="container">
+      <h2>Mapa interativo de skills</h2>
+      <p class="muted">Clique nos pontos para ver como aplico cada skill na prática.</p>
+      <div class="skills-map" id="skillsMap">
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATRIX (desativada no clean) -->
+  <section class="band band--matrix">
+    <div class="container">
+      <div class="matrix-wrap"><canvas id="matrix"></canvas></div>
+    </div>
+  </section>
+
+  <!-- SOBRE / CONTATO -->
+  <section class="band band--about" id="sobre">
+    <div class="container about">
+      <div class="panel">
+        <h2>Sobre mim</h2>
+        <p>Desenvolvedora Fullstack formada em Análise e Desenvolvimento de Sistemas, com projetos entregues em frontend (LandinPag, LiveSearch) e backend (Investly em Django/DRF/JWT). Domino Python, Django, JavaScript, Tailwind, bancos relacionais, APIs RESTful, Git e Docker.</p>
+      </div>
+      <div id="contato" class="panel">
+        <h2>Contato</h2>
+        <p class="muted">Use o formulário abaixo para entrar em contato.</p>
+        <form action="https://formspree.io/f/xzzapkpv" method="POST">
+          <label>E-mail<input type="email" name="email" required></label>
+          <label style="display:block;margin-top:10px">Mensagem<textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="control" style="background:#FFF; font-weight:600; margin-top:10px;">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Rayssa Roberta R. Silva — Portfólio. Baseado em HTML, CSS e JS.</div>
+  </footer>
+
+  <script>
+    /* ================== DADOS ================== */
+    const SOFT_SKILLS = ['Autodisciplina','Persistência','Organização','Comunicação Clara','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro'];
+    const SKILLS_FOR_MATRIX_AND_MAP = ['Python','Django','Django REST Framework','SQLite','PostgreSQL','PHP','Node.js','Express','HTML','CSS','Tailwind CSS','React','Docker','Docker Compose','Render','Railway','Git','GitHub','Celery','Redis','JWT / Token Authentication','pytest'];
+    const PROJECTS = [
+      { title:'Landing Page de Vendas', desc:' landing page responsiva com HTML, Tailwind CSS, JavaScript e animações suaves via AOS, com checkout integrado usando Stripe.js e envio de formulário via Formspree — tudo isso sem backend complexo. Essa página entrega tudo que um visitante precisa ver em poucos segundos, com alta performance visual e foco em conversão. É uma solução prática, elegante e funcional — o tipo de entrega que demonstra maturidade técnica e preocupação real com o usuário.', tags:['HTML','CSS','Tailwind','JavaScript'], thumb:'gifs/landing.gif', site:'https://rayssarrsilva.github.io/LandinPag/', code:'https://github.com/rayssarrsilva/LandinPag' },
+      { title:'LiveSearch — Sistema de Busca com Autocompletar', desc:'sistema de busca de livros em tempo real integrado à OpenLibrary API, com JavaScript puro, estilização responsiva em Tailwind CSS, sugestões guiadas, marcação dinâmica do termo buscado, navegação via teclado, debounce para performance e histórico persistente via LocalStorage — uma solução ágil, intuitiva e cheia de atenção aos detalhes, que entrega experiência de uso fluida, rápida e tecnicamente sólida.', tags:['HTML','CSS','JavaScript'], thumb:'gifs/livesearch.gif', site:'https://rayssarrsilva.github.io/LiveSearchReact/', code:'https://github.com/rayssarrsilva/LiveSearch' },
+      { title:'Investly — Simulador de Investimentos em Renda Fixa', desc:'O Investly é um simulador de investimentos desenvolvido com Django, Django REST Framework e autenticação JWT, com backend limpo e estruturado. O sistema permite ao usuário calcular metas financeiras, valor futuro de aplicações e prazos, além de simular diferentes cenários ajustando percentual do CDI/Selic, prazo, taxas e impostos. Usei SQLite, criei rotas REST organizadas, tratei validações e erros de forma transparente e publiquei em ambiente real (Render). Esse projeto comprova minha capacidade de projetar, desenvolver e entregar aplicações seguras, funcionais e com lógica financeira aplicada, sendo especialmente relevante para o mercado de software e fintechs.', tags:['Python','Django','DRF','SQLite','JWT'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly' }
+    ];
+
+    /* ================== UTIL ================== */
+    const $ = (sel,ctx=document)=>ctx.querySelector(sel);
+
+    /* ================== TYPING ================== */
+    const typingEl = $('#typing');
+    let idx=0, sub=0, dir=1, current = SOFT_SKILLS[0];
+    function tick(){
+      current = SOFT_SKILLS[idx%SOFT_SKILLS.length];
+      sub += dir;
+      if(sub===current.length+10){ dir=-1; }
+      if(sub===0){ dir=1; idx++; }
+      if(typingEl) typingEl.textContent = current.slice(0, Math.min(sub,current.length));
+    }
+    setInterval(tick, 80);
+
+    /* ================== PROJETOS EM FAIXAS ================== */
+    const bandsRoot = $('#projectsBands');
+    function renderProjectBands(){
+      bandsRoot.innerHTML = '';
+      PROJECTS.forEach((p,i)=>{
+        const band = document.createElement('section');
+        band.className = 'proj-band';
+        band.innerHTML = `
+          <div class="proj-inner" style="${i%2===1?'grid-template-columns:.85fr 1.15fr':''}">
+            <div class="proj-media">
+              ${p.thumb?`<img src="${p.thumb}" alt="${p.title} — preview" loading="lazy">`:''}
+            </div>
+            <div class="proj-content">
+              <h3 class="proj-title">${p.title}</h3>
+              <p class="proj-desc">${p.desc}</p>
+              <div class="proj-tags">${(p.tags||[]).map(t=>`<span class="proj-tag">${t}</span>`).join(' ')}</div>
+              <div class="proj-links">
+                <a class="proj-link" href="${p.code}" target="_blank" rel="noreferrer">Código</a>
+                <a class="proj-link" href="${p.site}" target="_blank" rel="noreferrer">Site</a>
+              </div>
+            </div>
+          </div>`;
+        bandsRoot.appendChild(band);
+      });
+    }
+    renderProjectBands();
+
+    /* ================== SKILLS MAP ================== */
+    const skillsMap = $('#skillsMap');
+    const tooltip = $('#tooltip');
+    const nodes = [
+      {t:'Python',x:10,y:16,d:'Uso em scripts, APIs e backends.'},
+      {t:'Django',x:25,y:12,d:'APIs REST, ORM, auth, admin.'},
+      {t:'DRF',x:42,y:14,d:'Serializers, ViewSets, JWT.'},
+      {t:'PostgreSQL',x:60,y:16,d:'Modelagem e queries eficientes.'},
+      {t:'Docker',x:82,y:20,d:'Ambiente isolado e deploy.'},
+      {t:'Express',x:18,y:34,d:'APIs leves e rápidas.'},
+      {t:'Node.js',x:35,y:34,d:'Serviços, scripts e integrações.'},
+      {t:'Celery',x:52,y:36,d:'Tarefas assíncronas.'},
+      {t:'Redis',x:68,y:38,d:'Cache e filas (Celery).'},
+      {t:'Render',x:84,y:42,d:'Deploy de apps web.'},
+      {t:'React',x:12,y:56,d:'SPAs e componentes reutilizáveis.'},
+      {t:'Tailwind',x:32,y:60,d:'UI rápida e consistente.'},
+      {t:'JWT/Auth',x:50,y:62,d:'Autenticação segura.'},
+      {t:'Git/GitHub',x:70,y:64,d:'Versionamento e CI.'},
+      {t:'HTML/CSS/JS',x:86,y:68,d:'Base do front.'}
+    ];
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.style.position='absolute'; svg.style.inset=0; svg.style.pointerEvents='none';
+    skillsMap.appendChild(svg);
+    function placeNodes(){
+      const r = skillsMap.getBoundingClientRect();
+      svg.innerHTML=''; skillsMap.querySelectorAll('.skill-node').forEach(n=>n.remove());
+      const pts=[];
+      for(const n of nodes){
+        const x=(n.x/100)*r.width, y=(n.y/100)*r.height;
+        const el=document.createElement('div'); el.className='skill-node'; el.textContent=n.t; el.style.left=`${x}px`; el.style.top=`${y}px`;
+        el.addEventListener('mouseenter',()=>{ tooltip.textContent=n.d; tooltip.style.display='block'; tooltip.style.left=`${x}px`; tooltip.style.top=`${y}px`; tooltip.classList.toggle('down',y<60); });
+        el.addEventListener('mouseleave',()=>{ tooltip.style.display='none'; tooltip.classList.remove('down'); });
+        skillsMap.appendChild(el); pts.push({x,y});
+      }
+      for(let i=0;i<pts.length-1;i++){
+        const a=pts[i], b=pts[i+1];
+        const path=document.createElementNS(svg.namespaceURI,'path');
+        path.setAttribute('d',`M ${a.x} ${a.y} Q ${(a.x+b.x)/2} ${a.y-30} ${b.x} ${b.y}`);
+        path.setAttribute('fill','none'); path.setAttribute('stroke','rgba(231,207,163,.6)'); path.setAttribute('stroke-width','2'); path.setAttribute('stroke-linecap','round');
+        svg.appendChild(path);
+      }
+    }
+    addEventListener('resize', placeNodes); placeNodes();
+
+    /* ================== MATRIX (desativada) ================== */
+    // Mantido apenas se quiser reativar depois.
+    // const m = document.getElementById('matrix'); const mtx = m?.getContext('2d');
+    // if(m && mtx){ /* efeito matrix aqui se desejar */ }
+
+    /* ================== MISC ================== */
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
