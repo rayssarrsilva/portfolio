@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meus Certificados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --brand: #E7CFA3;
+      --brand-weak: #F2E7CD;
+      --text: #111827;
+      --muted: #374151;
+      --radius: 14px;
+      --shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+      --hairline: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+
+    }
+    .download {
+        display: inline-block;
+        margin-top: auto;
+        padding: 6px 12px;
+        font-size: 12px;
+        text-decoration: none;
+        color: #111;
+        border: 1px solid #E7CFA3;
+        border-radius: 8px;
+        background: white;
+        transition: background 0.3s ease;
+    }
+
+    .download:hover {
+        background: #F2E7CD;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(120% 100% at 0% 0%, rgba(231,207,163,.10), transparent 60%),
+        radial-gradient(120% 100% at 100% 100%, rgba(231,207,163,.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    #certificatesGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .certificate-card {
+      background: var(--panel);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand);
+      box-shadow: 0 20px 40px rgba(17, 24, 39, 0.14);
+    }
+
+    .certificate-image {
+        width: 100%;
+        height: auto; /* Permite que a altura se ajuste ao conteúdo */
+        max-height: 250px; /* Limita a altura máxima para não ficar enorme */
+        object-fit: contain; /* Mostra toda a imagem sem cortar */
+        object-position: top center; /* Alinha a parte superior (onde está o título) */
+        border-radius: 8px;
+        border: 1px solid var(--hairline);
+        margin-bottom: 14px;
+        background: #f9f9f9; /* Fundo neutro caso a imagem tenha bordas brancas */
+    }
+
+    .certificate-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 10px;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .certificate-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .certificate-skill {
+      font-size: 11px;
+      padding: 4px 10px;
+      background: var(--brand-weak);
+      color: #5C4522;
+      border: 1px solid var(--brand);
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      #certificatesGrid {
+        grid-template-columns: 1fr;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Meus Certificados</h1>
+    <p class="subtitle">Conquistas e aprendizados que validam meu crescimento técnico.</p>
+
+    <div id="certificatesGrid">
+      
+      <!-- Exemplo 1 – APAGUE OU EDITE ESTE BLOCO -->
+      <div class="certificate-card">
+        <img src="certificados/certificado1.jpg" alt="Certificado de Lógica de Programação" class="certificate-image">
+        <h3 class="certificate-title">Lógica de Programação</h3>
+        <div class="certificate-skills">
+          <span class="certificate-skill">Algoritmos</span>
+          <span class="certificate-skill">Python</span>
+          <span class="certificate-skill">C</span>
+          <span class="certificate-skill">JAVA</span>
+          <span class="certificate-skill">C#</span>
+          <span class="certificate-skill">C++</span>
+          <span class="certificate-skill">Vetores</span>
+          <span class="certificate-skill">Matrizes</span>
+          <span class="certificate-skill">Estrutura de repetição e armazenamento</span>
+        </div>
+        <div>
+            <a href="certificados/certificado1.jpg" download class="download">📥 Baixar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
+
