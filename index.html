@@ -120,7 +120,30 @@
     background:rgba(255,255,255,.75);
     border-bottom:1px solid var(--hairline);
   }
-  .nav{display:flex;align-items:center;gap:10px;padding:10px 0;justify-content:center;flex-wrap:wrap}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  opacity: 1;
+  animation: pulse 3s infinite ease-in-out;
+  z-index: 999;
+}
+
+@keyframes animatePulse {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(1px); }
+  100% { transform: translateY(0); }
+}
+
   .nav a.btn{
     padding:8px 14px;border:1px solid var(--hairline);border-radius:12px;background:var(--panel);box-shadow:var(--shadow);
   }
@@ -250,11 +273,11 @@
     <div class="container nav">
       <nav class="nav-links" aria-label="primary">
         <a class="btn" href="certificados.html">Certificados</a>
-        <a class="chip" href="#projetos">Projetos</a>
+        <a class="btn" href="#projetos">Projetos</a>
         <a class="btn" href="#skills">Skills</a>
-        <a class="chip" href="#sobre">Sobre</a>
+        <a class="btn" href="#sobre">Sobre</a>
         <a class="btn" href="#contato">Contato</a>
-        <a class="chip" href="https://github.com/rayssarrsilva?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://github.com/rayssarrsilva?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/rayssa-r-14936622a/" target="_blank" rel="noreferrer">LinkedIn</a>
       </nav>
     </div>
