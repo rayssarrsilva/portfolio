@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta Fofo</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe6f0, #fff5e6);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #444;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h3 {
+            background: #ffb6c1;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5);
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        h3::before {
+            content: "⚠️✨";
+            position: absolute;
+            left: -40px;
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            margin-top: 30px;
+            background: #ffe4e1;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #555;
+            box-shadow: 0 3px 8px rgba(255, 192, 203, 0.4);
+        }
+
+        h4::after {
+            content: "🌸💌";
+            margin-left: 10px;
+        }
+
+        a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <h3>Nota: os serviços estão atualmente parados para evitar consumo desnecessário, mas podem ser reiniciados em minutos com 2 comandos (docker-compose down docker-compose up -d --build, no terminal EC2 da AWS); Rota publica: http://18.222.232.176:5000</h3>
+
+    <h4>Caso deseje ver o sistema no ar, entre em contato pelo formulário ou outra rede de contato</h4>
+</body>
+</html>
