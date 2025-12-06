@@ -81,7 +81,7 @@
     <div class="container about">
       <div class="panel">
         <h2>Sobre mim</h2>
-        <p>Desenvolvedora formada em Análise e Desenvolvimento de Sistemas, com projetos entregues em fullstack. Domino Python, Django, Flask, JavaScript, Tailwind, bancos relacionais, APIs RESTful, Git, Versionamento, Deploy e Docker.</p>
+        <p>Desenvolvedora Full Stack com foco em backend Python (FastAPI, Flask) e frontend React. Formada em Análise e Desenvolvimento de Sistemas, entrego aplicações completas — do planejamento à produção — com arquitetura limpa, APIs RESTful seguras, bancos relacionais (PostgreSQL), containers Docker e deploy em cloud (AWS). Domino o ciclo completo de desenvolvimento: versionamento com Git, CI/CD, testes, documentação e experiência do usuário. Meus projetos resolvem problemas reais com código estruturado, escalável e pronto para o mundo real — ideal para times que buscam engenharia sólida, agilidade e senso de dono.</p>
       </div>
       <div id="contato" class="panel">
         <h2>Contato</h2>
@@ -89,7 +89,7 @@
         <form action="https://formspree.io/f/xzzapkpv" method="POST">
           <label>E-mail<input type="email" name="email" required></label>
           <label style="display:block;margin-top:10px">Mensagem<textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="control" style="background:#FFF; font-weight:600; margin-top:10px;">Enviar</button>
+          <button type="submit" class="control" style="background:0F1419; font-weight:600; margin-top:10px;">Enviar</button>
         </form>
       </div>
     </div>
@@ -104,7 +104,7 @@
     const SOFT_SKILLS = ['Autodisciplina','Persistência','Organização','Comunicação Clara','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro'];
     const SKILLS_FOR_MATRIX_AND_MAP = ['Python','Django','Django REST Framework','SQLite','PostgreSQL','PHP','Node.js','Express','HTML','CSS','Tailwind CSS','React','Docker','Docker Compose','Render','Railway','Git','GitHub','Celery','Redis','JWT / Token Authentication','pytest'];
     const PROJECTS = [
-      { title:'Lista de compras — Sistema de Lista de compras', desc:'Sistema de lista de compras fullstack. frontend feito com Flask que consome os endpoints da arquitetura API Restful desenvolvida no backend com FastAPI. Integração Continua (CI) com Github Actions, que confere todas as etapas do sistema incluindo o Docker e o Pytest. Deploy realizado na AWS com o uso das instancia do RDS para o banco de dados PostgreSQL e o EC2 que conecta o sistema pelo github e roda com Docker facilitando a inicialização do frontend e do backend.', tags:['Python','FastAPI','PostgreSQL','Docker','AWS', 'RDS', 'EC2', 'GitHub Actions', 'JWT', 'CI', 'Pytest'], thumb:'gifs/listacompras.gif', site: '', code:'https://github.com/rayssarrsilva/ListaCompras'},
+      { title:'Lista de compras — Sistema de Lista de compras', desc:'Sistema de lista de compras fullstack. frontend feito com Flask que consome os endpoints da arquitetura API Restful desenvolvida no backend com FastAPI. Integração Continua (CI) com Github Actions, que confere todas as etapas do sistema incluindo o Docker e o Pytest. Deploy realizado na AWS com o uso das instancia do RDS para o banco de dados PostgreSQL e o EC2 que conecta o sistema pelo github e roda com Docker facilitando a inicialização do frontend e do backend.', tags:['Python','FastAPI','PostgreSQL','Docker','AWS', 'RDS', 'EC2', 'GitHub Actions', 'JWT', 'CI', 'Pytest'], thumb:'gifs/listacompras.gif', site:'aviso.html', code:'https://github.com/rayssarrsilva/ListaCompras'},
       { title:'Investly — Simulador de Investimentos em Renda Fixa', desc:'O Investly é um simulador de investimentos desenvolvido com Django, Django REST Framework e autenticação JWT, com backend limpo e estruturado. O sistema permite ao usuário calcular metas financeiras, valor futuro de aplicações e prazos, além de simular diferentes cenários ajustando percentual do CDI/Selic, prazo, taxas e impostos. Usei SQLite, criei rotas REST organizadas, tratei validações e erros de forma transparente e publiquei em ambiente real (Render). Esse projeto comprova minha capacidade de projetar, desenvolver e entregar aplicações seguras, funcionais e com lógica financeira aplicada, sendo especialmente relevante para o mercado de software e fintechs.', tags:['Python','Django','DRF','SQLite','JWT'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly' },
       { title:'Site de tarot personalizado', desc:'Projeto autoral desenvolvido com foco em SEO (Search Engine Optimization) e presença digital. Além de criar a interface em HTML e CSS, o objetivo foi garantir que o site aparecesse facilmente nas buscas do Google para o termo “skymistica”, mesmo que o domínio adquirido fosse tarotskymistica.com.br. O site foi publicado em hospedagem própria, com domínio registrado, e otimizado para indexação e ranqueamento.', tags:['HTML','CSS','WhatsApp API','JavaScript', 'Google Fonts', 'Google Search Console', 'domínio .com.br', 'meta tags', 'Git', 'GitHub', 'SEO', 'Netlify'], thumb:'gifs/skymistica.gif', site:'https://www.tarotskymistica.com.br/#home', code:'https://github.com/rayssarrsilva/TarotSky' },
       { title:'Landing Page de Vendas', desc:' landing page responsiva com HTML, Tailwind CSS, JavaScript e animações suaves via AOS, com checkout integrado usando Stripe.js e envio de formulário via Formspree — tudo isso sem backend complexo. Essa página entrega tudo que um visitante precisa ver em poucos segundos, com alta performance visual e foco em conversão. É uma solução prática, elegante e funcional — o tipo de entrega que demonstra maturidade técnica e preocupação real com o usuário.', tags:['HTML','CSS','Tailwind','JavaScript'], thumb:'gifs/landing.gif', site:'https://rayssarrsilva.github.io/LandinPag/', code:'https://github.com/rayssarrsilva/LandinPag' },
@@ -158,22 +158,23 @@
     const skillsMap = $('#skillsMap');
     const tooltip = $('#tooltip');
     const nodes = [
-      {t:'Python',x:10,y:16,d:'Uso em scripts, APIs e backends.'},
-      {t:'Django',x:25,y:80,d:'APIs REST, ORM, auth, admin.'},
-      {t:'DRF',x:42,y:83,d:'Serializers, ViewSets, JWT.'},
-      {t:'PostgreSQL',x:60,y:16,d:'Modelagem e queries eficientes.'},
-      {t:'Docker',x:82,y:15,d:'Ambiente isolado e deploy.'},
-      {t:'Express',x:18,y:34,d:'APIs leves e rápidas.'},
-      {t:'Node.js',x:35,y:34,d:'Serviços, scripts e integrações.'},
-      {t:'Celery',x:52,y:36,d:'Tarefas assíncronas.'},
-      {t:'Redis',x:68,y:38,d:'Cache e filas (Celery).'},
-      {t:'Render',x:84,y:42,d:'Deploy de apps web.'},
-      {t:'React',x:12,y:56,d:'SPAs e componentes reutilizáveis.'},
-      {t:'Tailwind',x:32,y:60,d:'UI rápida e consistente.'},
-      {t:'JWT/Auth',x:50,y:62,d:'Autenticação segura.'},
-      {t:'Git/GitHub',x:70,y:64,d:'Versionamento e CI.'},
-      {t:'HTML/CSS/JS',x:86,y:68,d:'Base do front.'}
-    ];
+    { t: 'Python',         x: 10, y: 15, d: 'Linguagem principal: backend, scripts e automação.' },
+    { t: 'FastAPI',        x: 28, y: 12, d: 'APIs REST modernas, assíncronas, com validação e docs automáticas.' },
+    { t: 'PostgreSQL',     x: 48, y: 14, d: 'Modelagem relacional, queries otimizadas e integridade de dados.' },
+    { t: 'Docker',         x: 68, y: 13, d: 'Containers para desenvolvimento e deploy consistente.' },
+    { t: 'AWS',            x: 86, y: 15, d: 'EC2 + RDS: infra cloud para aplicações em produção.' },
+
+    { t: 'React',          x: 15, y: 50, d: 'Frontend dinâmico com estado gerenciado e componentes reutilizáveis.' },
+    { t: 'Tailwind CSS',   x: 35, y: 55, d: 'Estilização rápida, responsiva e acessível.' },
+
+    { t: 'Node.js',        x: 20, y: 32, d: 'Serviços auxiliares e integrações em JavaScript.' },
+    { t: 'Express',        x: 40, y: 32, d: 'APIs leves e rápidas para microserviços.' },
+    { t: 'Django',         x: 58, y: 32, d: 'Frameworks maduro para aplicações full-stack com ORM e admin.' },
+
+    { t: 'Git/GitHub',     x: 60, y: 52, d: 'Versionamento, branches e workflows colaborativos.' },
+    { t: 'CI/CD',          x: 82, y: 52, d: 'Integração contínua com testes e deploy automatizados (GitHub Actions).' },
+    { t: 'RESTful APIs',   x: 85, y: 33, d: 'Design de interfaces claras, seguras e testáveis.' }
+    ];  
     const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.style.position='absolute'; svg.style.inset=0; svg.style.pointerEvents='none';
     skillsMap.appendChild(svg);
