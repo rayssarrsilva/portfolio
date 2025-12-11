@@ -159,21 +159,27 @@
     const skillsMap = $('#skillsMap');
     const tooltip = $('#tooltip');
     const nodes = [
-    { t: 'Python',         x: 10, y: 15, d: 'Linguagem principal: backend, scripts e automação.' },
-    { t: 'FastAPI',        x: 28, y: 12, d: 'APIs REST modernas, assíncronas, com validação e docs automáticas.' },
-    { t: 'PostgreSQL',     x: 48, y: 14, d: 'Modelagem relacional, queries otimizadas e integridade de dados.' },
-    { t: 'Docker',         x: 68, y: 13, d: 'Containers para desenvolvimento e deploy consistente.' },
-    { t: 'AWS',            x: 86, y: 15, d: 'EC2 + RDS: infra cloud para aplicações em produção.' },
+        { t: 'Python',         x: 10, y: 15, d: 'Linguagem principal: backend, scripts e automação.' },
+        { t: 'FastAPI',        x: 28, y: 12, d: 'APIs REST modernas, assíncronas, com validação e docs automáticas.' },
+        { t: 'PostgreSQL',     x: 48, y: 14, d: 'Modelagem relacional, queries otimizadas e integridade de dados.' },
+        { t: 'Docker',         x: 68, y: 13, d: 'Containers para desenvolvimento e deploy consistente.' },
+        { t: 'AWS / Cloud',            x: 86, y: 15, d: 'EC2 + RDS: infra cloud para aplicações em produção.' },
 
-    { t: 'React',          x: 15, y: 50, d: 'Frontend dinâmico com estado gerenciado e componentes reutilizáveis.' },
-    { t: 'Tailwind CSS',   x: 35, y: 55, d: 'Estilização rápida, responsiva e acessível.' },
+        { t: 'React',          x: 15, y: 50, d: 'Frontend dinâmico com estado gerenciado e componentes reutilizáveis.' },
+        { t: 'Tailwind CSS',   x: 35, y: 55, d: 'Estilização rápida, responsiva e acessível.' },
 
-    { t: 'Django',         x: 58, y: 32, d: 'Frameworks maduro para aplicações full-stack com ORM e admin.' },
+        { t: 'Django',         x: 58, y: 32, d: 'Framework maduro para aplicações full-stack com ORM e admin.' },
 
-    { t: 'Git/GitHub',     x: 60, y: 52, d: 'Versionamento, branches e workflows colaborativos.' },
-    { t: 'CI/CD',          x: 82, y: 52, d: 'Integração contínua com testes e deploy automatizados (GitHub Actions).' },
-    { t: 'RESTful APIs',   x: 85, y: 33, d: 'Design de interfaces claras, seguras e testáveis.' }
-    ];  
+        { t: 'Git/GitHub',     x: 60, y: 52, d: 'Versionamento, branches e workflows colaborativos.' },
+        { t: 'CI/CD',          x: 82, y: 52, d: 'Integração contínua com testes e deploy automatizados (GitHub Actions).' },
+        { t: 'RESTful APIs',   x: 85, y: 33, d: 'Design de interfaces claras, seguras e testáveis.' },
+
+        // 🔹 automação/dados
+        { t: 'Pandas',         x: 20, y: 70, d: 'Manipulação e transformação de dados tabulares.' },
+        { t: 'Pytest',         x: 60, y: 74, d: 'Testes automatizados garantindo integridade do pipeline.' },
+        { t: 'SQL',            x: 65, y: 89, d: 'Consultas, modelagem relacional e integração com pipelines.' },
+        { t: 'ETL',            x: 85, y: 91, d: 'Processos de extração, transformação e carga de dados.' }
+    ];
     const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.style.position='absolute'; svg.style.inset=0; svg.style.pointerEvents='none';
     skillsMap.appendChild(svg);
