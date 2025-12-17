@@ -535,23 +535,47 @@
 
     /* ================== RESPONSIVE ================== */
     @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        text-align: center;
-      }
-      .hero img {
-        margin: 0 auto;
-      }
-      .proj-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .nav-links {
-        justify-content: center;
-      }
-      .about {
-        grid-template-columns: 1fr;
-      }
+    .container {
+      padding: 0 20px;
     }
-  </style>
+    .nav {
+      padding: 16px 20px;
+    }
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .hero img {
+      margin: 0 auto;
+    }
+    .proj-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .proj-media {
+      justify-self: center;
+      max-width: 100%;
+    }
+    .about {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .panel {
+      padding: 32px 20px;
+    }
+    .band--skills h2,
+    .band--about .panel h2 {
+      font-size: 2rem;
+    }
+    .skills-map {
+      height: 500px;
+    }
+}
+</style>
