@@ -81,7 +81,7 @@
     <div class="container about">
       <div class="panel">
         <h2>Sobre mim</h2>
-        <p>Desenvolvedora Full Stack com foco em backend Python (FastAPI, Flask) e frontend React. Formada em Análise e Desenvolvimento de Sistemas, entrego aplicações completas — do planejamento à produção — com arquitetura limpa, APIs RESTful seguras, bancos relacionais (PostgreSQL), containers Docker e deploy em cloud (AWS). Domino o ciclo completo de desenvolvimento: versionamento com Git, CI/CD, testes, documentação e experiência do usuário. Meus projetos resolvem problemas reais com código estruturado, escalável e pronto para o mundo real — ideal para times que buscam engenharia sólida, agilidade e senso de dono.</p>
+        <p>Desenvolvedora Full Stack com ênfase em backend Python (Flask, FastAPI, Django REST Framework) e frontend React/Tailwind. Formada em Análise e Desenvolvimento de Sistemas, entrego aplicações completas — do planejamento à produção — com arquitetura limpa, APIs RESTful seguras, autenticação JWT, ORM com SQLAlchemy, bancos relacionais (PostgreSQL/SQLite), containers Docker e deploy em cloud (AWS, Render, Railway). Domino o ciclo completo de desenvolvimento: versionamento com Git/GitHub, CI/CD com GitHub Actions, testes automatizados (Pytest, Pandera), documentação clara e UX responsiva. Meus projetos aplicam práticas modernas de segurança (hashing de senhas, CSRF protection, secure headers, token reset), além de pipelines ETL para dados, garantindo código escalável, confiável e pronto para ambientes reais — ideal para times que buscam engenharia sólida, agilidade e foco em qualidade.</p>
       </div>
       <div id="contato" class="panel">
         <h2>Contato</h2>
@@ -165,31 +165,49 @@ const PROJECTS = [
     }
     renderProjectBands();
 
-    /* ================== SKILLS MAP ================== */
-    const skillsMap = $('#skillsMap');
-    const tooltip = $('#tooltip');
-    const nodes = [
-        { t: 'Python',         x: 10, y: 15, d: 'Linguagem principal: backend, scripts e automação.' },
-        { t: 'FastAPI',        x: 28, y: 12, d: 'APIs REST modernas, assíncronas, com validação e docs automáticas.' },
-        { t: 'PostgreSQL',     x: 48, y: 14, d: 'Modelagem relacional, queries otimizadas e integridade de dados.' },
-        { t: 'Docker',         x: 68, y: 13, d: 'Containers para desenvolvimento e deploy consistente.' },
-        { t: 'AWS / Cloud',            x: 86, y: 15, d: 'EC2 + RDS: infra cloud para aplicações em produção.' },
+/* ================== SKILLS MAP ================== */
+const skillsMap = $('#skillsMap');
+const tooltip = $('#tooltip');
+const nodes = [
+    // 🔹 Backend & APIs
+    { t: 'Python',         x: 10, y: 15, d: 'Linguagem principal: backend, scripts, automação e ETL.' },
+    { t: 'Flask',          x: 25, y: 10, d: 'Framework leve para web apps, autenticação e CRUD seguro.' },
+    { t: 'FastAPI',        x: 40, y: 12, d: 'APIs REST modernas, assíncronas, com validação e docs automáticas.' },
+    { t: 'Django / DRF',   x: 58, y: 14, d: 'Framework robusto para aplicações full-stack e APIs REST.' },
+    { t: 'JWT / Auth',     x: 75, y: 16, d: 'Autenticação segura com tokens, login/logout e reset de senha.' },
 
-        { t: 'React',          x: 15, y: 50, d: 'Frontend dinâmico com estado gerenciado e componentes reutilizáveis.' },
-        { t: 'Tailwind CSS',   x: 35, y: 55, d: 'Estilização rápida, responsiva e acessível.' },
+    // 🔹 Banco de Dados
+    { t: 'PostgreSQL',     x: 20, y: 32, d: 'Modelagem relacional, queries otimizadas e produção em cloud.' },
+    { t: 'SQLite',         x: 38, y: 35, d: 'Banco leve para desenvolvimento e prototipagem rápida.' },
+    { t: 'SQLAlchemy',     x: 55, y: 30, d: 'ORM para abstração de queries e migrações com Flask-Migrate.' },
 
-        { t: 'Django',         x: 58, y: 32, d: 'Framework maduro para aplicações full-stack com ORM e admin.' },
+    // 🔹 Cloud & Deploy
+    { t: 'Docker',         x: 72, y: 28, d: 'Containers para desenvolvimento e deploy consistente.' },
+    { t: 'AWS (EC2/RDS)',  x: 90, y: 30, d: 'Infraestrutura cloud para aplicações em produção.' },
+    { t: 'Render / Railway', x: 90, y: 40, d: 'Deploy simplificado de apps com CI/CD integrado.' },
+    { t: 'Gunicorn',       x: 72, y: 40, d: 'Servidor WSGI usado em produção para apps Flask/Django.' },
 
-        { t: 'Git/GitHub',     x: 60, y: 52, d: 'Versionamento, branches e workflows colaborativos.' },
-        { t: 'CI/CD',          x: 82, y: 52, d: 'Integração contínua com testes e deploy automatizados (GitHub Actions).' },
-        { t: 'RESTful APIs',   x: 85, y: 33, d: 'Design de interfaces claras, seguras e testáveis.' },
+    // 🔹 Frontend
+    { t: 'React',          x: 15, y: 55, d: 'Frontend dinâmico com estado gerenciado e componentes reutilizáveis.' },
+    { t: 'Tailwind CSS',   x: 35, y: 58, d: 'Estilização rápida, responsiva e acessível.' },
+    { t: 'HTML/CSS/JS',    x: 55, y: 60, d: 'Fundamentos sólidos para interfaces responsivas e interativas.' },
 
-        // 🔹 automação/dados
-        { t: 'Pandas',         x: 20, y: 70, d: 'Manipulação e transformação de dados tabulares.' },
-        { t: 'Pytest',         x: 60, y: 74, d: 'Testes automatizados garantindo integridade do pipeline.' },
-        { t: 'SQL',            x: 65, y: 89, d: 'Consultas, modelagem relacional e integração com pipelines.' },
-        { t: 'ETL',            x: 85, y: 91, d: 'Processos de extração, transformação e carga de dados.' }
-    ];
+    // 🔹 Versionamento & CI/CD
+    { t: 'Git/GitHub',     x: 20, y: 75, d: 'Versionamento, branches e workflows colaborativos.' },
+    { t: 'CI/CD',          x: 40, y: 78, d: 'Integração contínua com testes e deploy automatizados (GitHub Actions).' },
+
+    // 🔹 Automação & Dados
+    { t: 'Pandas',         x: 60, y: 70, d: 'Manipulação e transformação de dados tabulares.' },
+    { t: 'ETL',            x: 80, y: 72, d: 'Processos de extração, transformação e carga de dados.' },
+    { t: 'Pytest',         x: 60, y: 85, d: 'Testes automatizados garantindo integridade do pipeline.' },
+    { t: 'Pandera',        x: 80, y: 85, d: 'Validação declarativa de dados em pipelines ETL.' },
+
+    // 🔹 Segurança
+    { t: 'CSRF Protection', x: 25, y: 95, d: 'Proteção contra ataques cross-site request forgery.' },
+    { t: 'Secure Headers',  x: 45, y: 95, d: 'HSTS, CSP, X-Frame-Options e X-Content-Type-Options aplicados.' },
+    { t: 'Password Hashing', x: 65, y: 95, d: 'Senhas protegidas com hashing seguro (Werkzeug).' },
+    { t: 'Token Reset',     x: 85, y: 95, d: 'Reset de senha com tokens seguros e expiração controlada.' }
+];
     const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.style.position='absolute'; svg.style.inset=0; svg.style.pointerEvents='none';
     skillsMap.appendChild(svg);
