@@ -33,7 +33,7 @@
       <!-- REMOVIDO: <canvas id="particles"></canvas> -->
       <div>
         <h1 id="title-hero">Rayssa Roberta Rodrigues Silva</h1>
-        <p class="role-badge">Backend & Fullstack Developer | Data & DevOps</p>
+        <p class="role-badge">Frontend Developer & Backend Django/Python</p>
 
         <p class="muted">Soft skills que me definem: <strong id="typing"></strong></p>
         <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
@@ -81,11 +81,25 @@
     <div class="container about">
       <div class="panel">
         <h2>Sobre mim</h2>
-        <p>Desenvolvedora Full Stack com ênfase em backend Python (Flask, FastAPI, Django REST Framework) e frontend React/Tailwind. Formada em Análise e Desenvolvimento de Sistemas, entrego aplicações completas — do planejamento à produção — com arquitetura limpa, APIs RESTful seguras, autenticação JWT, ORM com SQLAlchemy, bancos relacionais (PostgreSQL/SQLite), containers Docker e deploy em cloud (AWS, Render, Railway). Domino o ciclo completo de desenvolvimento: versionamento com Git/GitHub, CI/CD com GitHub Actions, testes automatizados (Pytest, Pandera), documentação clara e UX responsiva. Meus projetos aplicam práticas modernas de segurança (hashing de senhas, CSRF protection, secure headers, token reset), além de pipelines ETL para dados, garantindo código escalável, confiável e pronto para ambientes reais — ideal para times que buscam engenharia sólida, agilidade e foco em qualidade.</p>
+        <p> Desenvolvedora web formada em Análise e desenvolvimento de Sistemas na Uniube em 2025, 
+          versiono meus projetos desde 2023 utilizando Git e Github. 
+          <br>
+          <br>
+          Possuo projetos Frontend realizados no The Odin Proejct, curso autodidatico em inglês. 
+          Leio, Escrevo e me comunico bem em inglês (B1 - B2) e Portugues (lingua nativa).
+          <br>
+          <br>
+          Minhas linguagens principais são Javascript e Python, Desenvolvendo utilizando os Frameworks Django e Flask e para banco de dados PostgreSQL
+          utlizado em alguns projetos e Mysql/Oracle os quais tive contato em projetos na faculdade. 
+          <br>
+          <br>
+          Sou uma pessoa que adquiriu autodidaticidade e disciplina durante meus anos de faculdade, escola, trabalho e desenvolvimento de projetos a parte.
+          Trabalho bem em equipe, possuo boa comunicação e prestatividade.
+      </p>
       </div>
       <div id="contato" class="panel">
         <h2>Contato</h2>
-        <p class="muted">Use o formulário abaixo para entrar em contato.</p>
+        <p class="muted">Use o formulário abaixo para entrar em contato comigo pelo meu email.</p>
         <form action="https://formspree.io/f/xzzapkpv" method="POST">
           <label>E-mail<input type="email" name="email" required></label>
           <label style="display:block;margin-top:10px">Mensagem<textarea name="message" rows="5" required></textarea></label>
@@ -96,14 +110,14 @@
   </section>
 
   <footer>
-    <div class="container">© <span id="year"></span> Rayssa Roberta R. Silva — Portfólio. Baseado em HTML, CSS e JS.</div>
+    <div class="container">© <span id="year"></span> Rayssa Roberta R. Silva</div>
   </footer>
 
   <script>
     /* ================== DADOS ================== */
 const SOFT_SKILLS = ['Autodisciplina','Persistência','Organização','Comunicação Clara','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro'];
 
-const SKILLS_FOR_MATRIX_AND_MAP = ['Python','Django','Django REST Framework','SQLite','PostgreSQL','PHP','Node.js','Express','HTML','CSS','Tailwind CSS','React','Docker','Docker Compose','Render','Railway','Git','GitHub','Celery','Redis','JWT / Token Authentication','pytest'];
+const SKILLS_FOR_MATRIX_AND_MAP = ['Python','Django','SQLite','PostgreSQL','HTML','CSS','Tailwind CSS','Docker','Docker Compose','Render','Railway','Git','GitHub','Celery','Redis','JWT / Token Authentication','pytest'];
 
 const PROJECTS = [
   { title:'Authentication CRUD — Flask System', desc:'Aplicação web desenvolvida em Flask com arquitetura modular e boas práticas de clean code. Implementa autenticação completa (registro, login, logout), CRUD de usuários e reset de senha via tokens seguros enviados por email usando integração com Brevo API. Banco de dados gerenciado com SQLAlchemy, SQLite em desenvolvimento e PostgreSQL em produção, com migrações controladas por Flask‑Migrate. Segurança aplicada com hashing de senhas (Werkzeug), CSRF protection, headers de segurança (HSTS, CSP, X‑Frame‑Options, X‑Content‑Type‑Options) e logging de erros. Deploy realizado no Render com Gunicorn e variáveis de ambiente configuráveis, demonstrando experiência em metodologias de desenvolvimento seguro e pronto para produção.', tags:['Flask','SQLAlchemy','WTForms','Flask-Login','Flask-Migrate','Brevo API','JWT','CRUD','Autenticação','Segurança','PostgreSQL','SQLite','GitHub'], thumb:'gifs/autenticacaosimples.gif', site:'https://autenticationcrud.onrender.com/', code:'https://github.com/rayssarrsilva/autenticationcrud' },
