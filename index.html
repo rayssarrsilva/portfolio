@@ -115,11 +115,15 @@
 
   <script>
     /* ================== DADOS ================== */
-const SOFT_SKILLS = ['Autodisciplina','Persistência','Organização','Comunicação Clara','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro'];
+const SOFT_SKILLS = ['Autodisciplina','Persistência','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro'];
 
 const SKILLS_FOR_MATRIX_AND_MAP = ['Python','Django','SQLite','PostgreSQL','HTML','CSS','Tailwind CSS','Docker','Docker Compose','Render','Railway','Git','GitHub','Celery','Redis','JWT / Token Authentication','pytest'];
 
 const PROJECTS = [
+  { title:'Lista de compras — Sistema de Lista de compras', desc:'Sistema fullstack com Flask (frontend) e FastAPI (backend). CI/CD com GitHub Actions, Docker, Pytest e deploy na AWS (RDS + EC2).', tags:['Python','FastAPI','PostgreSQL','Docker','AWS','RDS','EC2','GitHub Actions','JWT','CI','Pytest'], thumb:'gifs/listacompras.gif', site:'aviso.html', code:'https://github.com/rayssarrsilva/ListaCompras' },
+  
+  { title:'Investly — Simulador de Investimentos em Renda Fixa', desc:'Simulador de investimentos com Django REST Framework e autenticação JWT. Permite cálculos financeiros, metas e simulações de cenários. Deploy no Render.', tags:['Python','Django','DRF','SQLite','JWT', 'Git', 'Github'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly' },
+
   { title:'Calculadora', desc:'Calculadora funcional, capaz de calcular números grandes e números decimais. O prótotipo foi feito no figma e melhorado durante o desenvolvimento', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/calculator.gif', site:'rayssarrsilva.github.io/calculator/', code:'https://github.com/rayssarrsilva/calculator' },
 
   { title:'Rock Paper Scissors', desc:'O Clássico pedra, papel, tesoura e este ainda conta com empates. O layout foi desenvolvido previamente no Figma, dando esse design simples e divertido', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'Github'], thumb:'gifs/rockps.gif', site:'rayssarrsilva.github.io/rps/', code:'https://github.com/rayssarrsilva/rps' },
@@ -127,10 +131,6 @@ const PROJECTS = [
   { title:'Etch a sketch', desc:' Pinte através de quadrados pequenos, médios ou grandes, você customiza! A largura e a altura dos pequenos quadrados não devem mudar, apenas a quantidade de quadrado por altura e largura ', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Git', 'Github'], thumb:'gifs/etch.gif', site:'rayssarrsilva.github.io/Etch-a-Sketch/', code:'https://github.com/rayssarrsilva/Etch-a-Sketch' },
 
   { title:'Authentication CRUD — Flask System', desc:'Aplicação web desenvolvida em Flask com arquitetura modular e boas práticas de clean code. Implementa autenticação completa (registro, login, logout), CRUD de usuários e reset de senha via tokens seguros enviados por email usando integração com Brevo API. Banco de dados gerenciado com SQLAlchemy, SQLite em desenvolvimento e PostgreSQL em produção, com migrações controladas por Flask‑Migrate. Segurança aplicada com hashing de senhas (Werkzeug), CSRF protection, headers de segurança (HSTS, CSP, X‑Frame‑Options, X‑Content‑Type‑Options) e logging de erros. Deploy realizado no Render com Gunicorn e variáveis de ambiente configuráveis, demonstrando experiência em metodologias de desenvolvimento seguro e pronto para produção.', tags:['Flask','SQLAlchemy','WTForms','Flask-Login','Flask-Migrate','Brevo API','JWT','CRUD','Autenticação','Segurança','PostgreSQL','SQLite','GitHub'], thumb:'gifs/autenticacaosimples.gif', site:'https://autenticationcrud.onrender.com/', code:'https://github.com/rayssarrsilva/autenticationcrud' },
-
-  { title:'Investly — Simulador de Investimentos em Renda Fixa', desc:'Simulador de investimentos com Django REST Framework e autenticação JWT. Permite cálculos financeiros, metas e simulações de cenários. Deploy no Render.', tags:['Python','Django','DRF','SQLite','JWT', 'Git', 'Github'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly' },
-
-  { title:'Lista de compras — Sistema de Lista de compras', desc:'Sistema fullstack com Flask (frontend) e FastAPI (backend). CI/CD com GitHub Actions, Docker, Pytest e deploy na AWS (RDS + EC2).', tags:['Python','FastAPI','PostgreSQL','Docker','AWS','RDS','EC2','GitHub Actions','JWT','CI','Pytest'], thumb:'gifs/listacompras.gif', site:'aviso.html', code:'https://github.com/rayssarrsilva/ListaCompras' },
 
   { title:'PyUdemy – Minigames Interativos', desc:'Aplicação web com Flask baseada em exercícios de lógica. Deploy no Render com Gunicorn.', tags:['HTML','CSS','Python','Flask','Git','Github','Render','Gunicorn','Templates'], thumb:'gifs/pyudemy.gif', site:'https://pyudemy.onrender.com/', code:'https://github.com/rayssarrsilva/pyudemy' },
 
