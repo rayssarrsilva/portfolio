@@ -124,11 +124,11 @@ const PROJECTS = [
   
   { title:'Investly — Simulador de Investimentos em Renda Fixa', desc:'Simulador de investimentos com Django REST Framework e autenticação JWT. Permite cálculos financeiros, metas e simulações de cenários. Deploy no Render.', tags:['Python','Django','DRF','SQLite','JWT', 'Git', 'Github'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly' },
 
-  { title:'Calculadora', desc:'Calculadora funcional, capaz de calcular números grandes e números decimais. O prótotipo foi feito no figma e melhorado durante o desenvolvimento', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/calculator.gif', site:'rayssarrsilva.github.io/calculator/', code:'https://github.com/rayssarrsilva/calculator' },
+  { title:'Calculadora', desc:'Calculadora funcional, capaz de calcular números grandes e números decimais. O prótotipo foi feito no figma e melhorado durante o desenvolvimento', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/calculator.gif', site:'rayssarrsilva.github.io/calculator/', code:'https://github.com/rayssarrsilva/calculator', figma:'https://www.figma.com/design/AqibsfzeAgJG6zSNNVASmL/calculadora?t=1EPnYIoLBUcYHzIg-1'},
   
-  { title:'Library', desc:'Armazene seus livros temporariamente nessa biblioteca dinamica, crie a estante com a quantidade de livros que você deseja adicionar e coloque os livros com nome, autor, paginas e marque se foi lido ou não. Exclua o livro clicando com o botão direito e para verificar se foi lido ou não, passe o mouse por cima!', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/libraryvideo.gif', site:'https://rayssarrsilva.github.io/library/', code:'https://github.com/rayssarrsilva/library' },
+  { title:'Library', desc:'Armazene seus livros temporariamente nessa biblioteca dinamica, crie a estante com a quantidade de livros que você deseja adicionar e coloque os livros com nome, autor, paginas e marque se foi lido ou não. Exclua o livro clicando com o botão direito e para verificar se foi lido ou não, passe o mouse por cima!', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/libraryvideo.gif', site:'https://rayssarrsilva.github.io/library/', code:'https://github.com/rayssarrsilva/library', figma:'https://www.figma.com/design/kfQfAnbDQ7rrUrEC9YEWA7/Library?t=1EPnYIoLBUcYHzIg-1'},
 
-  { title:'Rock Paper Scissors', desc:'O Clássico pedra, papel, tesoura e este ainda conta com empates. O layout foi desenvolvido previamente no Figma, dando esse design simples e divertido', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'Github'], thumb:'gifs/rockps.gif', site:'rayssarrsilva.github.io/rps/', code:'https://github.com/rayssarrsilva/rps' },
+  { title:'Rock Paper Scissors', desc:'O Clássico pedra, papel, tesoura e este ainda conta com empates. O layout foi desenvolvido previamente no Figma, dando esse design simples e divertido', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'Github'], thumb:'gifs/rockps.gif', site:'rayssarrsilva.github.io/rps/', code:'https://github.com/rayssarrsilva/rps', figma:'https://www.figma.com/design/An2zfyTifKbnWiCNBkaaZa/Sem-t%C3%ADtulo?t=1EPnYIoLBUcYHzIg-1'},
 
   { title:'Etch a sketch', desc:' Pinte através de quadrados pequenos, médios ou grandes, você customiza! A largura e a altura dos pequenos quadrados não devem mudar, apenas a quantidade de quadrado por altura e largura ', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Git', 'Github'], thumb:'gifs/etch.gif', site:'rayssarrsilva.github.io/Etch-a-Sketch/', code:'https://github.com/rayssarrsilva/Etch-a-Sketch' },
 
@@ -138,7 +138,7 @@ const PROJECTS = [
 
   { title:'Landing Page de Vendas', desc:'Landing page responsiva com Tailwind CSS, animações AOS e checkout Stripe.js.', tags:['HTML','CSS','Tailwind','JavaScript'], thumb:'gifs/landing.gif', site:'https://rayssarrsilva.github.io/LandinPag/', code:'https://github.com/rayssarrsilva/LandinPag' },
 
-  { title:'Site de tarot personalizado', desc:'Site otimizado para SEO e ranqueamento no Google. Publicado com domínio próprio.', tags:['HTML','CSS','WhatsApp API','JavaScript','Google Fonts','Google Search Console','domínio .com.br','meta tags','Git','GitHub','SEO','Netlify'], thumb:'gifs/skymistica.gif', site:'https://www.tarotskymistica.com.br/#home', code:'https://github.com/rayssarrsilva/TarotSky' }
+  { title:'Site de tarot personalizado', desc:'Site otimizado para SEO e ranqueamento no Google. Publicado com domínio próprio.', tags:['HTML','CSS','WhatsApp API','JavaScript','Google Fonts','Google Search Console','domínio .com.br','meta tags','Git','GitHub','SEO','Netlify'], thumb:'gifs/skymistica.gif', site:'https://www.tarotskymistica.com.br/#home', code:'https://github.com/rayssarrsilva/TarotSky'}
 ];
 
     /* ================== UTIL ================== */
@@ -175,7 +175,7 @@ const PROJECTS = [
               <div class="proj-links">
                 <a class="proj-link" href="${p.code}" target="_blank" rel="noreferrer">Código</a>
                 <a class="proj-link" href="${p.site}" target="_blank" rel="noreferrer">Site</a>
-                <a class="proj-link" href="${p.figma}" target="_blank" rel="noreferrer">Figma</a>
+                ${p.figma ? `<a class="proj-link" href="${p.figma}" target="_blank" rel="noreferrer">Figma</a>` : ''}              
               </div>
             </div>
           </div>`;
