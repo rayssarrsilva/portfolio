@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rayssa — Desenvolvedora Júnior</title>
-  <meta name="description" content="Portfólio one-page de Rayssa — Desenvolvedora Fullstack Júnior. Projetos com deploy, skills e contato." />
+  <title>Rayssa Roberta — Junior Backend Developer (Python)</title>
+  <meta name="description" content="Portfolio of Rayssa Roberta, junior backend developer in Python (Flask, Django, FastAPI) with solid frontend fundamentals. Deployed projects, automated tests, and security best practices." />
   <meta name="theme-color" content="#F4EFE7" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +16,19 @@
   <header>
     <div class="container nav">
       <nav class="nav-links" aria-label="primary">
-        <a class="btn" href="certificados.html">Certificados</a>
-        <a class="btn" href="#projetos">Projetos</a>
-        <a class="btn" href="#skills">Skills</a>
-        <a class="btn" href="#sobre">Sobre</a>
-        <a class="btn" href="#contato">Contato</a>
+        <a class="btn" href="certificados.html" data-i18n="nav.certs">Certificates</a>
+        <a class="btn" href="#projetos" data-i18n="nav.projects">Projects</a>
+        <a class="btn" href="#skills" data-i18n="nav.skills">Skills</a>
+        <a class="btn" href="#sobre" data-i18n="nav.about">About</a>
+        <a class="btn" href="#contato" data-i18n="nav.contact">Contact</a>
         <a class="btn" href="https://github.com/rayssarrsilva?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/rayssa-r-14936622a/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <div class="nav-toggles">
+          <button type="button" class="toggle-btn lang-toggle" id="langToggle" aria-label="Switch language">PT</button>
+          <button type="button" class="toggle-btn theme-toggle" id="themeToggle" aria-label="Switch theme">
+            <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
@@ -30,23 +36,26 @@
   <main class="container">
     <!-- HERO -->
     <section class="hero" aria-labelledby="title-hero">
-      <!-- REMOVIDO: <canvas id="particles"></canvas> -->
       <div>
         <h1 id="title-hero">Rayssa Roberta</h1>
-        <p class="role-badge">Frontend Developer & Backend Django/Python</p>
+        <p class="role-badge" data-i18n="hero.badge">Junior Backend Developer — Python</p>
 
-        <p class="muted">Soft skills que me definem: <strong id="typing"></strong></p>
+        <p class="muted"><span data-i18n="hero.softSkills">Soft skills that define me:</span> <strong id="typing"></strong></p>
         <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="control" href="#projetos">Ver Projetos</a>
-          <a class="control" href="#contato">Falar comigo</a>
+          <a class="control" href="#projetos" data-i18n="hero.ctaProjects">View Projects</a>
+          <a class="control" href="#contato" data-i18n="hero.ctaContact">Get in Touch</a>
+        </div>
+        <div class="hero-stats" id="heroStats" aria-label="highlights">
+          <div class="hero-stat"><span class="hero-stat-num">B1–B2</span><span class="hero-stat-label" data-i18n="hero.statEnglish">technical English</span></div>
+          <div class="hero-stat"><span class="hero-stat-num" data-i18n="hero.statOpenSourceValue">Open Source</span><span class="hero-stat-label" data-i18n="hero.statOpenSource">contributes to open-source projects</span></div>
         </div>
       </div>
 
       <!-- avatar foto circular -->
       <div style="display:flex;justify-content:center;align-items:center">
-        <img src="foto/foto_minha.jpg" alt="Foto minha"
+        <img src="foto/foto_minha.jpg" alt="Rayssa's photo"
              style="width:180px;height:180px;border-radius:50%;
-                    object-fit:cover;border:4px solid #FFFFFF;
+                    object-fit:cover;border:4px solid var(--panel-bg-solid);
                     box-shadow:0 10px 24px rgba(17,24,39,.08);">
       </div>
     </section>
@@ -54,17 +63,24 @@
 
   <!-- PROJETOS (faixas) -->
   <section id="projetos" class="section">
-    <div class="container"></div>
+    <div class="container">
+      <div class="proj-filters" id="projFilters" role="tablist" aria-label="Filter projects by area"></div>
+    </div>
     <div id="projectsBands"></div>
   </section>
 
   <!-- SKILLS MAP -->
   <section class="band band--skills" id="skills">
     <div class="container">
-      <h2>Mapa interativo de skills</h2>
-      <p class="muted">Clique nos pontos para ver como aplico cada skill na prática.</p>
+      <h2 data-i18n="skills.title">Interactive skills map</h2>
+      <p class="muted" data-i18n="skills.subtitle">Click the nodes to see how I apply each skill in practice.</p>
       <div class="skills-map" id="skillsMap">
         <div class="tooltip" id="tooltip"></div>
+      </div>
+
+      <div class="cert-strip-wrap">
+        <h3 class="cert-strip-title" data-i18n="certs.title">Certifications</h3>
+        <div class="cert-strip" id="certStrip"></div>
       </div>
     </div>
   </section>
@@ -80,30 +96,19 @@
   <section class="band band--about" id="sobre">
     <div class="container about">
       <div class="panel">
-        <h2>Sobre mim</h2>
-        <p> Desenvolvedora web formada em Análise e desenvolvimento de Sistemas na Uniube em 2025, 
-          versiono meus projetos desde 2023 utilizando Git e Github. 
-          <br>
-          <br>
-          Possuo projetos Frontend realizados no The Odin Proejct, curso autodidatico em inglês. 
-          Leio, Escrevo e me comunico bem em inglês (B1 - B2) e Portugues (lingua nativa).
-          <br>
-          <br>
-          Minhas linguagens principais são Javascript e Python, Desenvolvendo utilizando os Frameworks Django e Flask e para banco de dados PostgreSQL
-          utlizado em alguns projetos e Mysql/Oracle os quais tive contato em projetos na faculdade. 
-          <br>
-          <br>
-          Sou uma pessoa que adquiriu autodidaticidade e disciplina durante meus anos de faculdade, escola, trabalho e desenvolvimento de projetos a parte.
-          Trabalho bem em equipe, possuo boa comunicação e prestatividade.
-      </p>
+        <h2 data-i18n="about.title">About me</h2>
+        <p data-i18n="about.p1">Graduated in Systems Analysis and Development from Uniube (2023–2025), I build backend applications in Python with a focus on secure authentication, REST APIs, and deployment best practices — from prototype to production.</p>
+        <p data-i18n="about.p2">I've been versioning my projects with Git and GitHub since 2023. I develop with Django and Flask, plus FastAPI for APIs; for databases, I use PostgreSQL in production and have worked with MySQL and Oracle in college. My frontend fundamentals (HTML, CSS, JavaScript) come from self-taught practice on The Odin Project, an English-language curriculum — I read, write, and communicate well in English (B1–B2) and Portuguese (native language).</p>
+        <p data-i18n="about.p3">I'm self-taught and disciplined, traits built up through college, work, and the projects I develop on my own. I work well in teams, with good communication and a helpful attitude.</p>
+        <div class="interest-tags" id="interestTags"></div>
       </div>
       <div id="contato" class="panel">
-        <h2>Contato</h2>
-        <p class="muted">Use o formulário abaixo para entrar em contato comigo pelo meu email, caso meu perfil faça sentido pra você!</p>
+        <h2 data-i18n="contact.title">Contact</h2>
+        <p class="muted" data-i18n="contact.subtitle">Use the form below to reach me by email, in case my profile fits what you're looking for!</p>
         <form action="https://formspree.io/f/xzzapkpv" method="POST">
-          <label>E-mail<input type="email" name="email" required></label>
-          <label style="display:block;margin-top:10px">Mensagem<textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="control" style="background:0F1419; font-weight:600; margin-top:10px;">Enviar</button>
+          <label><span data-i18n="contact.email">Email</span><input type="email" name="email" required></label>
+          <label style="display:block;margin-top:10px"><span data-i18n="contact.message">Message</span><textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="control" style="font-weight:600; margin-top:10px;" data-i18n="contact.send">Send</button>
         </form>
       </div>
     </div>
@@ -114,45 +119,197 @@
   </footer>
 
   <script>
+    /* ================== I18N ================== */
+    const I18N = {
+      en: {
+        nav: { certs:'Certificates', projects:'Projects', skills:'Skills', about:'About', contact:'Contact' },
+        hero: {
+          badge:'Junior Backend Developer — Python',
+          softSkills:'Soft skills that define me:',
+          ctaProjects:'View Projects',
+          ctaContact:'Get in Touch',
+          statEnglish:'technical English',
+          statOpenSourceValue:'Open Source',
+          statOpenSource:'contributes to open-source projects'
+        },
+        filters: { all:'All', backend:'Backend & APIs', frontend:'Frontend & Design', logica:'Logic & Games' },
+        links: { code:'Code', site:'Live', figma:'Figma' },
+        skills: { title:'Interactive skills map', subtitle:'Click the nodes to see how I apply each skill in practice.' },
+        certs: { title:'Certifications', viewAll:'View all certifications →' },
+        about: {
+          title:'About me',
+          p1:"Graduated in Systems Analysis and Development from Uniube (2023–2025), I build backend applications in Python with a focus on secure authentication, REST APIs, and deployment best practices — from prototype to production.",
+          p2:"I've been versioning my projects with Git and GitHub since 2023. I develop with Django and Flask, plus FastAPI for APIs; for databases, I use PostgreSQL in production and have worked with MySQL and Oracle in college. My frontend fundamentals (HTML, CSS, JavaScript) come from self-taught practice on The Odin Project, an English-language curriculum — I read, write, and communicate well in English (B1–B2) and Portuguese (native language).",
+          p3:"I'm self-taught and disciplined, traits built up through college, work, and the projects I develop on my own. I work well in teams, with good communication and a helpful attitude.",
+          tags:['Python Backend','REST APIs','Auth & Security','Automation','Frontend Fundamentals']
+        },
+        contact: { title:'Contact', subtitle:"Use the form below to reach me by email, in case my profile fits what you're looking for!", email:'Email', message:'Message', send:'Send' }
+      },
+      pt: {
+        nav: { certs:'Certificados', projects:'Projetos', skills:'Skills', about:'Sobre', contact:'Contato' },
+        hero: {
+          badge:'Desenvolvedora Backend Júnior — Python',
+          softSkills:'Soft skills que me definem:',
+          ctaProjects:'Ver Projetos',
+          ctaContact:'Falar comigo',
+          statEnglish:'inglês técnico',
+          statOpenSourceValue:'Open Source',
+          statOpenSource:'contribui com projetos open source'
+        },
+        filters: { all:'Todos', backend:'Backend & APIs', frontend:'Frontend & Design', logica:'Jogos & Lógica' },
+        links: { code:'Código', site:'Site', figma:'Figma' },
+        skills: { title:'Mapa interativo de skills', subtitle:'Clique nos pontos para ver como aplico cada skill na prática.' },
+        certs: { title:'Certificações', viewAll:'Ver todos os certificados →' },
+        about: {
+          title:'Sobre mim',
+          p1:"Formada em Análise e Desenvolvimento de Sistemas pela Uniube (2023–2025), construo aplicações backend em Python com foco em autenticação segura, APIs REST e boas práticas de deploy — do protótipo à produção.",
+          p2:"Verso meus projetos com Git e GitHub desde 2023. Desenvolvo com Django e Flask, além de FastAPI para APIs; em banco de dados, uso PostgreSQL em produção e tive contato com MySQL e Oracle na faculdade. Meus fundamentos de frontend (HTML, CSS, JavaScript) vêm da prática autodidata no The Odin Project, um currículo em inglês — leio, escrevo e me comunico bem em inglês (B1–B2) e português (língua nativa).",
+          p3:"Sou autodidata e disciplinada, características construídas ao longo da faculdade, do trabalho e dos projetos que desenvolvo por conta própria. Trabalho bem em equipe, com boa comunicação e prestatividade.",
+          tags:['Backend em Python','APIs REST','Autenticação & Segurança','Automação','Fundamentos de Frontend']
+        },
+        contact: { title:'Contato', subtitle:'Use o formulário abaixo para entrar em contato comigo pelo meu email, caso meu perfil faça sentido pra você!', email:'E-mail', message:'Mensagem', send:'Enviar' }
+      }
+    };
+
+    const TAG_PT = {
+      'Authentication':'Autenticação',
+      'Security':'Segurança',
+      'Layered Architecture':'Arquitetura em camadas',
+      'Algorithms':'Algoritmos',
+      'Graphs':'Grafos',
+      '.com.br domain':'domínio .com.br',
+      'Keyboard Navigation':'Navegação por teclado'
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
     /* ================== DADOS ================== */
-const SOFT_SKILLS = ['Autodisciplina','Persistência','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro'];
+    const SOFT_SKILLS = {
+      en: ['Self-discipline','Persistence','Continuous Learning','Critical Thinking','Adaptability','Forward Thinking'],
+      pt: ['Autodisciplina','Persistência','Aprendizado Contínuo','Pensamento Crítico','Adaptabilidade','Visão de Futuro']
+    };
 
-const SKILLS_FOR_MATRIX_AND_MAP = ['Python','Django','SQLite','PostgreSQL','HTML','CSS','Tailwind CSS','Docker','Docker Compose','Render','Railway','Git','GitHub','Celery','Redis','JWT / Token Authentication','pytest'];
+    const PROJECTS = [
+      { title:{en:'Shopping List — Shopping List Management System', pt:'Lista de compras — Sistema de Lista de compras'},
+        desc:{en:'Fullstack shopping list system with Flask (frontend) and FastAPI (backend). CI/CD with GitHub Actions, Docker, Pytest, and deployment on AWS (RDS + EC2).', pt:'Sistema fullstack com Flask (frontend) e FastAPI (backend). CI/CD com GitHub Actions, Docker, Pytest e deploy na AWS (RDS + EC2).'},
+        tags:['Python','FastAPI','PostgreSQL','Docker','AWS','RDS','EC2','GitHub Actions','JWT','CI','Pytest'], thumb:'gifs/listacompras.gif', site:'aviso.html', code:'https://github.com/rayssarrsilva/ListaCompras', category:'backend' },
 
-const PROJECTS = [
-  { title:'Lista de compras — Sistema de Lista de compras', desc:'Sistema fullstack com Flask (frontend) e FastAPI (backend). CI/CD com GitHub Actions, Docker, Pytest e deploy na AWS (RDS + EC2).', tags:['Python','FastAPI','PostgreSQL','Docker','AWS','RDS','EC2','GitHub Actions','JWT','CI','Pytest'], thumb:'gifs/listacompras.gif', site:'aviso.html', code:'https://github.com/rayssarrsilva/ListaCompras' },
-  
-  { title:'Investly — Simulador de Investimentos em Renda Fixa', desc:'Simulador de investimentos com Django REST Framework e autenticação JWT. Permite cálculos financeiros, metas e simulações de cenários. Deploy no Render.', tags:['Python','Django','DRF','SQLite','JWT', 'Git', 'Github'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly' },
+      { title:{en:'Investly — Fixed-Income Investment Simulator', pt:'Investly — Simulador de Investimentos em Renda Fixa'},
+        desc:{en:'Investment simulator built with Django REST Framework and JWT authentication. Supports financial calculations, goals, and scenario simulations. Deployed on Render.', pt:'Simulador de investimentos com Django REST Framework e autenticação JWT. Permite cálculos financeiros, metas e simulações de cenários. Deploy no Render.'},
+        tags:['Python','Django','DRF','SQLite','JWT','Git','GitHub'], thumb:'gifs/investly.gif', site:'https://investly-gux1.onrender.com', code:'https://github.com/rayssarrsilva/investly', category:'backend' },
 
-  { title:'Admin dashboard Design', desc:'Dashboard administrativo responsivo, construído com CSS Grid e Flexbox, focado em layout limpo e organizado para gerenciamento de conteúdo.', tags:[  'Flexbox', 'CSS Grid', 'CSS', 'HTML', 'Git', 'Github', 'Figma'], thumb:'gifs/dashboard.gif', site:'https://rayssarrsilva.github.io/admin-dashboard/', code:'https://github.com/rayssarrsilva/admin-dashboard', figma:'https://www.figma.com/design/EVWAqwE6yIyNscZ0qNrLLt/Sem-t%C3%ADtulo?t=1EPnYIoLBUcYHzIg-1'},
-  
-  { title:'Tic-Tac-Toe — Jogo da Velha', desc:'Jogo da Velha responsivo desenvolvido com HTML, CSS e JavaScript puro, utilizando módulos, manipulação do DOM, lógica de vitória, empate e reinício da partida.', tags:['HTML','CSS','JavaScript','DOM','Modules','ES6','Game Logic','Responsive Design'], thumb:'gifs/tictactoe.gif', site:'https://rayssarrsilva.github.io/tic-tac-toe/', code:'https://github.com/rayssarrsilva/tic-tac-toe' },
-  
-  { title:'Rock Paper Scissors', desc:'O Clássico pedra, papel, tesoura e este ainda conta com empates. O layout foi desenvolvido previamente no Figma, dando esse design simples e divertido', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'Github'], thumb:'gifs/rockps.gif', site:'rayssarrsilva.github.io/rps/', code:'https://github.com/rayssarrsilva/rps', figma:'https://www.figma.com/design/An2zfyTifKbnWiCNBkaaZa/Sem-t%C3%ADtulo?t=1EPnYIoLBUcYHzIg-1'},
+      { title:{en:'Authentication CRUD — Flask System', pt:'Authentication CRUD — Flask System'},
+        desc:{en:'Web application built with Flask using a modular architecture and clean-code practices. Implements full authentication (sign-up, login, logout), user CRUD, and secure token-based password reset emailed via the Brevo API. Database managed with SQLAlchemy — SQLite in development, PostgreSQL in production — with migrations controlled by Flask-Migrate. Security hardened with password hashing (Werkzeug), CSRF protection, security headers (HSTS, CSP, X-Frame-Options, X-Content-Type-Options), and error logging. Deployed on Render with Gunicorn and configurable environment variables.',
+              pt:'Aplicação web desenvolvida em Flask com arquitetura modular e boas práticas de clean code. Implementa autenticação completa (registro, login, logout), CRUD de usuários e reset de senha via tokens seguros enviados por email usando integração com Brevo API. Banco de dados gerenciado com SQLAlchemy, SQLite em desenvolvimento e PostgreSQL em produção, com migrações controladas por Flask‑Migrate. Segurança aplicada com hashing de senhas (Werkzeug), CSRF protection, headers de segurança (HSTS, CSP, X‑Frame‑Options, X‑Content‑Type‑Options) e logging de erros. Deploy realizado no Render com Gunicorn e variáveis de ambiente configuráveis.'},
+        tags:['Flask','SQLAlchemy','WTForms','Flask-Login','Flask-Migrate','Brevo API','JWT','CRUD','Authentication','Security','PostgreSQL','SQLite','GitHub'], thumb:'gifs/autenticacaosimples.gif', site:'https://autenticationcrud.onrender.com/', code:'https://github.com/rayssarrsilva/autenticationcrud', category:'backend' },
 
-  { title:'Library', desc:'Armazene seus livros temporariamente nessa biblioteca dinamica, crie a estante com a quantidade de livros que você deseja adicionar e coloque os livros com nome, autor, paginas e marque se foi lido ou não. Exclua o livro clicando com o botão direito e para verificar se foi lido ou não, passe o mouse por cima!', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/libraryvideo.gif', site:'https://rayssarrsilva.github.io/library/', code:'https://github.com/rayssarrsilva/library', figma:'https://www.figma.com/design/kfQfAnbDQ7rrUrEC9YEWA7/Library?t=1EPnYIoLBUcYHzIg-1'},
+      { title:{en:'DietGreen — Personalized Meal Plans', pt:'DietGreen — Cardápios Personalizados'},
+        desc:{en:'Fullstack application that generates personalized meal plans based on dietary profile (vegan, vegetarian, lacto-vegetarian, pescetarian, and more), physical goal, and nutritional needs. Calculates macronutrients, ranks food substitutions, and exports the plan as PDF or Excel. Optional login via Google or GitHub (Auth.js). Layered architecture inspired by Clean Architecture and SOLID principles.',
+              pt:'Aplicação fullstack que gera cardápios personalizados com base em perfil alimentar (vegano, vegetariano, lactovegetariano, pescetariano e outros), objetivo físico e necessidades nutricionais. Calcula macronutrientes, sugere substituições alimentares ranqueadas e exporta o cardápio em PDF ou Excel. Login opcional via Google ou GitHub (Auth.js). Arquitetura em camadas inspirada em Clean Architecture e princípios SOLID.'},
+        tags:['Next.js','TypeScript','Prisma','PostgreSQL','Tailwind CSS','Auth.js','OAuth','Zod','Clean Architecture','SOLID'], site:'https://diet-app-3iyl.onrender.com/', code:'https://github.com/rayssarrsilva/DietGreen', category:'frontend' },
 
-  { title:'Calculadora', desc:'Calculadora funcional, capaz de calcular números grandes e números decimais. O prótotipo foi feito no figma e melhorado durante o desenvolvimento', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Figma', 'Git', 'GitHub'], thumb:'gifs/calculator.gif', site:'rayssarrsilva.github.io/calculator/', code:'https://github.com/rayssarrsilva/calculator', figma:'https://www.figma.com/design/AqibsfzeAgJG6zSNNVASmL/calculadora?t=1EPnYIoLBUcYHzIg-1'},
-  
-  { title:'Etch a sketch', desc:' Pinte através de quadrados pequenos, médios ou grandes, você customiza! A largura e a altura dos pequenos quadrados não devem mudar, apenas a quantidade de quadrado por altura e largura ', tags:['Javascript','DOM Manipulation','Flexbox','CSS','HTML', 'Git', 'Github'], thumb:'gifs/etch.gif', site:'rayssarrsilva.github.io/Etch-a-Sketch/', code:'https://github.com/rayssarrsilva/Etch-a-Sketch' },
-  
-  { title:'Authentication CRUD — Flask System', desc:'Aplicação web desenvolvida em Flask com arquitetura modular e boas práticas de clean code. Implementa autenticação completa (registro, login, logout), CRUD de usuários e reset de senha via tokens seguros enviados por email usando integração com Brevo API. Banco de dados gerenciado com SQLAlchemy, SQLite em desenvolvimento e PostgreSQL em produção, com migrações controladas por Flask‑Migrate. Segurança aplicada com hashing de senhas (Werkzeug), CSRF protection, headers de segurança (HSTS, CSP, X‑Frame‑Options, X‑Content‑Type‑Options) e logging de erros. Deploy realizado no Render com Gunicorn e variáveis de ambiente configuráveis, demonstrando experiência em metodologias de desenvolvimento seguro e pronto para produção.', tags:['Flask','SQLAlchemy','WTForms','Flask-Login','Flask-Migrate','Brevo API','JWT','CRUD','Autenticação','Segurança','PostgreSQL','SQLite','GitHub'], thumb:'gifs/autenticacaosimples.gif', site:'https://autenticationcrud.onrender.com/', code:'https://github.com/rayssarrsilva/autenticationcrud' },
+      { title:{en:'WeatherSearch', pt:'WeatherSearch'},
+        desc:{en:'Location-based weather search with autocomplete, current conditions, and a 5-day forecast. Toggle between light/dark theme and °C/°F units, with preferences saved locally. Consumes the Open-Meteo (geocoding) and Visual Crossing (weather data) APIs.',
+              pt:'Busca de clima por localização com autocomplete, condições atuais e previsão de 5 dias. Alterna entre tema claro/escuro e unidades °C/°F, com preferências salvas no navegador. Consome as APIs Open-Meteo (geocoding) e Visual Crossing (dados climáticos).'},
+        tags:['JavaScript','DOM Manipulation','Fetch API','Open-Meteo API','Visual Crossing API','Debounce','LocalStorage','Webpack'], site:'https://rayssarrsilva.github.io/Weather-App/', code:'https://github.com/rayssarrsilva/Weather-App', category:'frontend' },
 
-  { title:'PyUdemy – Minigames Interativos', desc:'Aplicação web com Flask baseada em exercícios de lógica. Deploy no Render com Gunicorn.', tags:['HTML','CSS','Python','Flask','Git','Github','Render','Gunicorn','Templates'], thumb:'gifs/pyudemy.gif', site:'https://pyudemy.onrender.com/', code:'https://github.com/rayssarrsilva/pyudemy' },
+      { title:{en:"Knight's Travails — The Knight's Spell", pt:"Knight's Travails — O Feitiço do Cavaleiro"},
+        desc:{en:"Solves the classic shortest-path problem for a chess knight between two squares using breadth-first search (BFS) over an implicit graph. A themed interface (wizard chessboard) animates the knight moving square by square. Algorithm logic fully decoupled from the UI, following all 5 SOLID principles.",
+              pt:"Resolve o clássico problema do menor caminho de um cavalo de xadrez entre duas casas, usando busca em largura (BFS) sobre um grafo implícito. Interface temática (tabuleiro bruxo) anima o cavalo se movendo casa a casa. Lógica do algoritmo totalmente desacoplada da UI, seguindo os 5 princípios SOLID."},
+        tags:['JavaScript','ES Modules','BFS','Algorithms','Graphs','SOLID','HTML','CSS'], site:'https://rayssarrsilva.github.io/knight-travels/', code:'https://github.com/rayssarrsilva/knight-travels', category:'logica' },
 
-  { title:'Landing Page de Vendas', desc:'Landing page responsiva com Tailwind CSS, animações AOS e checkout Stripe.js.', tags:['HTML','CSS','Tailwind','JavaScript'], thumb:'gifs/landing.gif', site:'https://rayssarrsilva.github.io/LandinPag/', code:'https://github.com/rayssarrsilva/LandinPag' },
+      { title:{en:'Notes-App — Task & Project Manager', pt:'Notes-App — Gerenciador de Tarefas e Projetos'},
+        desc:{en:'Create projects and tasks, link tasks to the projects they belong to, with search/filter and a reporting page with date and priority filters. Data persisted in the browser via localStorage. Layered architecture (controllers, services, models, pages).',
+              pt:'Cria projetos e tarefas, vincula tarefas aos projetos aos quais pertencem, com busca/filtro e uma página de relatórios com filtros por data e prioridade. Dados persistidos no navegador via localStorage. Arquitetura em camadas (controllers, services, models, pages).'},
+        tags:['JavaScript','Webpack','LocalStorage','DOM Manipulation','Layered Architecture'], site:'https://rayssarrsilva.github.io/Notes-App/', code:'https://github.com/rayssarrsilva/Notes-App', category:'frontend' },
 
-  { title:'Site de tarot personalizado',   desc: 'Site otimizado para SEO e ranqueamento no Google. Publicado com domínio próprio, DNS gerenciado pelo Cloudflare e proteção de privacidade WHOIS.', tags:['HTML','CSS','WhatsApp API','Cloudflare', 'WHOIS Privacy', 'JavaScript','Google Fonts','Google Search Console','domínio .com.br','meta tags','Git','GitHub','SEO','Netlify'], thumb:'gifs/skymistica.gif', site:'https://www.tarotskymistica.com.br/#home', code:'https://github.com/rayssarrsilva/TarotSky'}
-];
+      { title:{en:'LiveSearch — Real-Time Book Search', pt:'LiveSearch — Busca de Livros em Tempo Real'},
+        desc:{en:'Instant book search connected to the OpenLibrary API. Debounced real-time results, keyboard navigation (↑ ↓ Enter), search-term highlighting, and persistent search history via localStorage. Built with React (via CDN) and Tailwind CSS.',
+              pt:'Sistema de busca instantânea de livros conectado à OpenLibrary API. Resultados em tempo real com debounce, navegação por teclado (↑ ↓ Enter), destaque do termo pesquisado e histórico persistente com localStorage. Construído com React (via CDN) e Tailwind CSS.'},
+        tags:['React','Tailwind CSS','OpenLibrary API','Debounce','LocalStorage','Keyboard Navigation'], thumb:'gifs/livesearch.gif', site:'https://rayssarrsilva.github.io/LiveSearchReact/', code:'https://github.com/rayssarrsilva/LiveSearch', category:'frontend' },
+
+      { title:{en:'Library', pt:'Library'},
+        desc:{en:'A dynamic library to temporarily store your books: create a shelf with as many books as you like, add name, author, and page count, and mark books as read. Right-click to delete a book, and hover to check its read status.',
+              pt:'Armazene seus livros temporariamente nessa biblioteca dinamica, crie a estante com a quantidade de livros que você deseja adicionar e coloque os livros com nome, autor, paginas e marque se foi lido ou não. Exclua o livro clicando com o botão direito e para verificar se foi lido ou não, passe o mouse por cima!'},
+        tags:['JavaScript','DOM Manipulation','Flexbox','CSS','HTML','Figma','Git','GitHub'], thumb:'gifs/libraryvideo.gif', site:'https://rayssarrsilva.github.io/library/', code:'https://github.com/rayssarrsilva/library', figma:'https://www.figma.com/design/kfQfAnbDQ7rrUrEC9YEWA7/Library?t=1EPnYIoLBUcYHzIg-1', category:'frontend' },
+
+      { title:{en:'Sales Landing Page', pt:'Landing Page de Vendas'},
+        desc:{en:'Responsive landing page with Tailwind CSS, AOS animations, and Stripe.js checkout.', pt:'Landing page responsiva com Tailwind CSS, animações AOS e checkout Stripe.js.'},
+        tags:['HTML','CSS','Tailwind','JavaScript','Stripe.js','AOS'], thumb:'gifs/landing.gif', site:'https://rayssarrsilva.github.io/LandinPag/', code:'https://github.com/rayssarrsilva/LandinPag', category:'frontend' },
+
+      { title:{en:'Personalized Tarot Website', pt:'Site de tarot personalizado'},
+        desc:{en:'Website optimized for SEO and Google ranking. Published with a custom domain, DNS managed through Cloudflare, and WHOIS privacy protection.', pt:'Site otimizado para SEO e ranqueamento no Google. Publicado com domínio próprio, DNS gerenciado pelo Cloudflare e proteção de privacidade WHOIS.'},
+        tags:['HTML','CSS','WhatsApp API','Cloudflare','WHOIS Privacy','JavaScript','Google Fonts','Google Search Console','.com.br domain','meta tags','Git','GitHub','SEO','Netlify'], thumb:'gifs/skymistica.gif', site:'https://www.tarotskymistica.com.br/#home', code:'https://github.com/rayssarrsilva/TarotSky', category:'frontend' }
+    ];
+
+    const PROJECT_FILTERS = ['all','backend','frontend','logica'];
+
+    const CERTIFICATES = [
+      { title:'Lógica de Programação — Nélio Alves', img:'certificados/certificado1.jpg', anchor:'cert-1' },
+      { title:'Engenharia de Dados — Fernando Amaral', img:'certificados/certificado2.jpg', anchor:'cert-2' },
+      { title:'Fundamentos de Gestão de Projetos', img:'certificados/certificado3.png', anchor:'cert-3' },
+      { title:'Fundamentos do GitHub — Datacamp', img:'certificados/certificado4.png', anchor:'cert-4' },
+      { title:'B1 English for Developers — freeCodeCamp', img:'certificados/freecodeenglish.png', anchor:'cert-5' }
+    ];
 
     /* ================== UTIL ================== */
     const $ = (sel,ctx=document)=>ctx.querySelector(sel);
 
+    /* ================== THEME ================== */
+    function setTheme(theme){
+      localStorage.setItem('theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    (function initTheme(){
+      const saved = localStorage.getItem('theme');
+      const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      setTheme(theme);
+    })();
+    $('#themeToggle').addEventListener('click', ()=>{
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ================== LANGUAGE ================== */
+    function applyI18n(){
+      const dict = I18N[currentLang];
+      document.documentElement.lang = currentLang === 'en' ? 'en' : 'pt-br';
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const path = el.getAttribute('data-i18n').split('.');
+        let val = dict;
+        for(const p of path){ val = val && val[p]; }
+        if(typeof val === 'string') el.textContent = val;
+      });
+      $('#langToggle').textContent = currentLang === 'en' ? 'PT' : 'EN';
+
+      // typing effect words
+      idx = 0; sub = 0; dir = 1;
+
+      // interest tags
+      const interestTagsEl = $('#interestTags');
+      if(interestTagsEl){
+        interestTagsEl.innerHTML = dict.about.tags.map(t=>`<span class="interest-tag">${t}</span>`).join('');
+      }
+
+      renderFilters();
+      renderProjectBands();
+      renderCertStrip();
+    }
+    function setLang(lang){
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      applyI18n();
+    }
+    $('#langToggle').addEventListener('click', ()=>{
+      setLang(currentLang === 'en' ? 'pt' : 'en');
+    });
+
     /* ================== TYPING ================== */
     const typingEl = $('#typing');
-    let idx=0, sub=0, dir=1, current = SOFT_SKILLS[0];
+    let idx=0, sub=0, dir=1;
     function tick(){
-      current = SOFT_SKILLS[idx%SOFT_SKILLS.length];
+      const list = SOFT_SKILLS[currentLang];
+      const current = list[idx % list.length];
       sub += dir;
       if(sub===current.length+10){ dir=-1; }
       if(sub===0){ dir=1; idx++; }
@@ -162,68 +319,131 @@ const PROJECTS = [
 
     /* ================== PROJETOS EM FAIXAS ================== */
     const bandsRoot = $('#projectsBands');
+    let revealObserver;
+    function tagLabel(tag){
+      return currentLang === 'pt' && TAG_PT[tag] ? TAG_PT[tag] : tag;
+    }
     function renderProjectBands(){
+      const dict = I18N[currentLang];
       bandsRoot.innerHTML = '';
       PROJECTS.forEach((p,i)=>{
         const band = document.createElement('section');
-        band.className = 'proj-band';
+        band.className = 'proj-band reveal' + (p.thumb ? '' : ' proj-band--no-media');
+        band.dataset.category = p.category || 'all';
+        const title = p.title[currentLang] || p.title.en;
+        const desc = p.desc[currentLang] || p.desc.en;
         band.innerHTML = `
-          <div class="proj-inner" style="${i%2===1?'grid-template-columns:.85fr 1.15fr':''}">
-            <div class="proj-media">
-              ${p.thumb?`<img src="${p.thumb}" alt="${p.title} — preview" loading="lazy">`:''}
-            </div>
+          <div class="proj-inner" style="${i%2===1?'grid-template-columns:.85fr 1.15fr':''}${p.thumb?'':';grid-template-columns:1fr'}">
+            ${p.thumb ? `<div class="proj-media"><img src="${p.thumb}" alt="${title} — preview" loading="lazy"></div>` : ''}
             <div class="proj-content">
-              <h3 class="proj-title">${p.title}</h3>
-              <p class="proj-desc">${p.desc}</p>
-              <div class="proj-tags">${(p.tags||[]).map(t=>`<span class="proj-tag">${t}</span>`).join(' ')}</div>
+              <h3 class="proj-title">${title}</h3>
+              <p class="proj-desc">${desc}</p>
+              <div class="proj-tags">${(p.tags||[]).map(t=>`<span class="proj-tag">${tagLabel(t)}</span>`).join(' ')}</div>
               <div class="proj-links">
-                <a class="proj-link" href="${p.code}" target="_blank" rel="noreferrer">Código</a>
-                <a class="proj-link" href="${p.site}" target="_blank" rel="noreferrer">Site</a>
-                ${p.figma ? `<a class="proj-link" href="${p.figma}" target="_blank" rel="noreferrer">Figma</a>` : ''}              
+                <a class="proj-link" href="${p.code}" target="_blank" rel="noreferrer">${dict.links.code}</a>
+                <a class="proj-link" href="${p.site}" target="_blank" rel="noreferrer">${dict.links.site}</a>
+                ${p.figma ? `<a class="proj-link" href="${p.figma}" target="_blank" rel="noreferrer">${dict.links.figma}</a>` : ''}
               </div>
             </div>
           </div>`;
         bandsRoot.appendChild(band);
       });
+      setupReveal();
     }
-    renderProjectBands();
 
-/* ================== SKILLS MAP ================== */
-const skillsMap = $('#skillsMap');
-const tooltip = $('#tooltip');
-const nodes = [
-    // 🔹 Backend & APIs
-    { t: 'Python',         x: 10, y: 15, d: 'Linguagem principal: backend, scripts, automação e ETL.' },
-    { t: 'Flask',          x: 25, y: 10, d: 'Framework leve para web apps, autenticação e CRUD seguro.' },
-    { t: 'FastAPI',        x: 40, y: 12, d: 'APIs REST modernas, assíncronas, com validação e docs automáticas.' },
-    { t: 'Django',   x: 58, y: 14, d: 'Framework robusto para aplicações full-stack e APIs REST.' },
-    { t: 'JWT / Auth',     x: 75, y: 16, d: 'Autenticação segura com tokens, login/logout e reset de senha.' },
+    function setupReveal(){
+      const bands = document.querySelectorAll('.proj-band');
+      const revealAll = () => bands.forEach(b=>b.classList.add('is-visible'));
 
-    // 🔹 Banco de Dados
-    { t: 'PostgreSQL',     x: 20, y: 32, d: 'Modelagem relacional, queries otimizadas e produção em cloud.' },
-    { t: 'SQLite',         x: 38, y: 35, d: 'Banco leve para desenvolvimento e prototipagem rápida.' },
-    { t: 'SQLAlchemy',     x: 55, y: 30, d: 'ORM para abstração de queries e migrações com Flask-Migrate.' },
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(prefersReduced || typeof IntersectionObserver === 'undefined'){ revealAll(); return; }
 
-    // 🔹 Cloud & Deploy
-    { t: 'Docker',         x: 72, y: 28, d: 'Containers para desenvolvimento e deploy consistente.' },
-    { t: 'AWS (EC2/RDS)',  x: 90, y: 30, d: 'Infraestrutura cloud para aplicações em produção.' },
+      try{
+        if(revealObserver) revealObserver.disconnect();
+        revealObserver = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){ entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+          });
+        }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
 
-    // 🔹 Frontend
-    { t: 'Tailwind CSS',   x: 35, y: 58, d: 'Estilização rápida, responsiva e acessível.' },
-    { t: 'HTML/CSS/JS',    x: 55, y: 60, d: 'Fundamentos sólidos para interfaces responsivas e interativas.' },
+        bands.forEach(b=>{
+          const r = b.getBoundingClientRect();
+          if(r.top < window.innerHeight){ b.classList.add('is-visible'); }
+          else { revealObserver.observe(b); }
+        });
 
-    // 🔹 Versionamento & CI/CD
-    { t: 'Git/GitHub',     x: 20, y: 75, d: 'Versionamento, branches e workflows colaborativos.' },
-    { t: 'CI/CD',          x: 40, y: 78, d: 'Integração contínua com testes e deploy automatizados (GitHub Actions).' },
+        setTimeout(revealAll, 4000);
+      } catch(err){
+        revealAll();
+      }
+    }
 
-    { t: 'Pytest',         x: 60, y: 85, d: 'Testes automatizados garantindo integridade do pipeline.' },
+    /* ================== FILTRO DE PROJETOS ================== */
+    const filtersRoot = $('#projFilters');
+    let activeFilter = 'all';
+    function renderFilters(){
+      const dict = I18N[currentLang];
+      filtersRoot.innerHTML = PROJECT_FILTERS.map(key=>
+        `<button type="button" class="filter-chip${key===activeFilter?' is-active':''}" data-key="${key}" role="tab" aria-selected="${key===activeFilter}">${dict.filters[key]}</button>`
+      ).join('');
+      document.querySelectorAll('.proj-band').forEach(band=>{
+        const match = activeFilter==='all' || band.dataset.category===activeFilter;
+        band.classList.toggle('is-filtered-out', !match);
+      });
+    }
+    function applyFilter(key){
+      activeFilter = key;
+      renderFilters();
+    }
+    filtersRoot.addEventListener('click', (e)=>{
+      const btn = e.target.closest('.filter-chip');
+      if(!btn) return;
+      applyFilter(btn.dataset.key);
+    });
 
-    // 🔹 Segurança
-    { t: 'CSRF Protection', x: 25, y: 95, d: 'Proteção contra ataques cross-site request forgery.' },
-    { t: 'Secure Headers',  x: 45, y: 95, d: 'HSTS, CSP, X-Frame-Options e X-Content-Type-Options aplicados.' },
-    { t: 'Password Hashing', x: 65, y: 95, d: 'Senhas protegidas com hashing seguro (Werkzeug).' },
-    { t: 'Token Reset',     x: 85, y: 95, d: 'Reset de senha com tokens seguros e expiração controlada.' }
-];
+    /* ================== CERTIFICAÇÕES (preview) ================== */
+    const certStrip = $('#certStrip');
+    function renderCertStrip(){
+      if(!certStrip) return;
+      const dict = I18N[currentLang];
+      certStrip.innerHTML = CERTIFICATES.map(c=>`
+        <a class="cert-card" href="certificados.html#${c.anchor}">
+          <img src="${c.img}" alt="${c.title}" loading="lazy">
+          <span class="cert-card-title">${c.title}</span>
+        </a>`).join('');
+      certStrip.insertAdjacentHTML('beforeend', `<a class="cert-card cert-card--all" href="certificados.html">${dict.certs.viewAll}</a>`);
+    }
+
+    /* ================== SKILLS MAP ================== */
+    const skillsMap = $('#skillsMap');
+    const tooltip = $('#tooltip');
+    const nodes = [
+        { t: 'Python',         x: 10, y: 15, d: {en:'Main language: backend, scripts, automation, and ETL.', pt:'Linguagem principal: backend, scripts, automação e ETL.'} },
+        { t: 'Flask',          x: 25, y: 10, d: {en:'Lightweight framework for web apps, authentication, and secure CRUD.', pt:'Framework leve para web apps, autenticação e CRUD seguro.'} },
+        { t: 'FastAPI',        x: 40, y: 12, d: {en:'Modern, async REST APIs with automatic validation and docs.', pt:'APIs REST modernas, assíncronas, com validação e docs automáticas.'} },
+        { t: 'Django',         x: 58, y: 14, d: {en:'Robust framework for full-stack applications and REST APIs.', pt:'Framework robusto para aplicações full-stack e APIs REST.'} },
+        { t: 'JWT / Auth',     x: 75, y: 16, d: {en:'Secure token-based authentication, login/logout, and password reset.', pt:'Autenticação segura com tokens, login/logout e reset de senha.'} },
+
+        { t: 'PostgreSQL',     x: 20, y: 32, d: {en:'Relational modeling, optimized queries, and cloud production.', pt:'Modelagem relacional, queries otimizadas e produção em cloud.'} },
+        { t: 'SQLite',         x: 38, y: 35, d: {en:'Lightweight database for development and rapid prototyping.', pt:'Banco leve para desenvolvimento e prototipagem rápida.'} },
+        { t: 'SQLAlchemy',     x: 55, y: 30, d: {en:'ORM for query abstraction and migrations with Flask-Migrate.', pt:'ORM para abstração de queries e migrações com Flask-Migrate.'} },
+
+        { t: 'Docker',         x: 72, y: 28, d: {en:'Containers for consistent development and deployment.', pt:'Containers para desenvolvimento e deploy consistente.'} },
+        { t: 'AWS (EC2/RDS)',  x: 90, y: 30, d: {en:'Cloud infrastructure for production applications.', pt:'Infraestrutura cloud para aplicações em produção.'} },
+
+        { t: 'Tailwind CSS',   x: 35, y: 58, d: {en:'Fast, responsive, and accessible styling.', pt:'Estilização rápida, responsiva e acessível.'} },
+        { t: 'HTML/CSS/JS',    x: 55, y: 60, d: {en:'Solid fundamentals for responsive, interactive interfaces.', pt:'Fundamentos sólidos para interfaces responsivas e interativas.'} },
+
+        { t: 'Git/GitHub',     x: 20, y: 75, d: {en:'Version control, branching, and collaborative workflows.', pt:'Versionamento, branches e workflows colaborativos.'} },
+        { t: 'CI/CD',          x: 40, y: 78, d: {en:'Continuous integration with automated tests and deploys (GitHub Actions).', pt:'Integração contínua com testes e deploy automatizados (GitHub Actions).'} },
+
+        { t: 'Pytest',         x: 60, y: 85, d: {en:'Automated tests ensuring pipeline reliability.', pt:'Testes automatizados garantindo integridade do pipeline.'} },
+
+        { t: 'CSRF Protection', x: 25, y: 95, d: {en:'Protection against cross-site request forgery attacks.', pt:'Proteção contra ataques cross-site request forgery.'} },
+        { t: 'Secure Headers',  x: 45, y: 95, d: {en:'HSTS, CSP, X-Frame-Options, and X-Content-Type-Options applied.', pt:'HSTS, CSP, X-Frame-Options e X-Content-Type-Options aplicados.'} },
+        { t: 'Password Hashing', x: 65, y: 95, d: {en:'Passwords protected with secure hashing (Werkzeug).', pt:'Senhas protegidas com hashing seguro (Werkzeug).'} },
+        { t: 'Token Reset',     x: 85, y: 95, d: {en:'Password reset with secure, time-limited tokens.', pt:'Reset de senha com tokens seguros e expiração controlada.'} }
+    ];
     const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.style.position='absolute'; svg.style.inset=0; svg.style.pointerEvents='none';
     skillsMap.appendChild(svg);
@@ -234,7 +454,7 @@ const nodes = [
       for(const n of nodes){
         const x=(n.x/100)*r.width, y=(n.y/100)*r.height;
         const el=document.createElement('div'); el.className='skill-node'; el.textContent=n.t; el.style.left=`${x}px`; el.style.top=`${y}px`;
-        el.addEventListener('mouseenter',()=>{ tooltip.textContent=n.d; tooltip.style.display='block'; tooltip.style.left=`${x}px`; tooltip.style.top=`${y}px`; tooltip.classList.toggle('down',y<60); });
+        el.addEventListener('mouseenter',()=>{ tooltip.textContent = n.d[currentLang] || n.d.en; tooltip.style.display='block'; tooltip.style.left=`${x}px`; tooltip.style.top=`${y}px`; tooltip.classList.toggle('down',y<60); });
         el.addEventListener('mouseleave',()=>{ tooltip.style.display='none'; tooltip.classList.remove('down'); });
         skillsMap.appendChild(el); pts.push({x,y});
       }
@@ -248,13 +468,11 @@ const nodes = [
     }
     addEventListener('resize', placeNodes); placeNodes();
 
-    /* ================== MATRIX (desativada) ================== */
-    // Mantido apenas se quiser reativar depois.
-    // const m = document.getElementById('matrix'); const mtx = m?.getContext('2d');
-    // if(m && mtx){ /* efeito matrix aqui se desejar */ }
-
     /* ================== MISC ================== */
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ================== INIT ================== */
+    applyI18n();
   </script>
 </body>
 </html>
