@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    # Mondays 07:00 in Brazil: catch external links that broke during the week.
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  html:
+    name: HTML and internal links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Validate HTML
+        run: |
+          npm install --no-save --no-package-lock --legacy-peer-deps --no-audit --no-fund html-validate@10.17.0
+          npx html-validate "**/*.html"
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --offline --include-fragments --index-files index.html --no-progress --root-dir "${{ github.workspace }}" --exclude-path node_modules '**/*.html'
+          lycheeVersion: v0.24.2
+          fail: true
+
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Run Lighthouse CI (fails below 95 performance, 100 in the other categories)
+        run: |
+          npm install --no-save --no-package-lock --legacy-peer-deps --no-audit --no-fund @lhci/cli@0.15.1
+          npx lhci autorun
+      - name: Keep the reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          retention-days: 14
+
+  external-links:
+    name: External links
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check external links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          # LinkedIn and Udemy block automated requests, so they are skipped. Render may be asleep.
+          args: >-
+            --no-progress --root-dir "${{ github.workspace }}" --max-retries 3 --timeout 60
+            --accept 200,206,429
+            --exclude linkedin.com --exclude udemy.com --exclude onrender.com --exclude portfoliorayssarrsilva.site
+            '**/*.html' README.md README.pt-BR.md
+          lycheeVersion: v0.24.2
+          fail: true

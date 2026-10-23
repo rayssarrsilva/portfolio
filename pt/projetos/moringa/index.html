@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Estudo de caso Moringa · Rayssa Roberta</title>
+<meta name="description" content="Como construí e testei o Moringa, um marketplace em Next.js para artesãos brasileiros: 100 no PageSpeed Insights, A+ no Mozilla Observatory, 337 testes automatizados.">
+<link rel="canonical" href="https://www.portfoliorayssarrsilva.site/pt/projetos/moringa/">
+<link rel="alternate" hreflang="en" href="https://www.portfoliorayssarrsilva.site/projects/moringa/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.portfoliorayssarrsilva.site/pt/projetos/moringa/">
+<link rel="alternate" hreflang="x-default" href="https://www.portfoliorayssarrsilva.site/projects/moringa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Estudo de caso Moringa · Rayssa Roberta">
+<meta property="og:description" content="Como construí e testei o Moringa, um marketplace em Next.js para artesãos brasileiros: 100 no PageSpeed Insights, A+ no Mozilla Observatory, 337 testes automatizados.">
+<meta property="og:url" content="https://www.portfoliorayssarrsilva.site/pt/projetos/moringa/">
+<meta property="og:image" content="https://www.portfoliorayssarrsilva.site/assets/img/og-pt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/source-serif-4-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/pt/">Rayssa Roberta</a>
+    <nav class="site-nav" aria-label="Principal"><ul><li><a href="/pt/#projetos">Projetos</a></li><li><a href="/pt/#como-trabalho">Como trabalho</a></li><li><a href="/pt/#sobre">Sobre</a></li><li><a href="/pt/#contato">Contato</a></li></ul></nav>
+    <div class="tools">
+      <a class="lang" href="/projects/moringa/" hreflang="en" lang="en">English</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Tema escuro"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page-intro">
+  <a class="back" href="/pt/#projetos">← Todos os projetos</a>
+  <p class="eyebrow">Estudo de caso</p>
+  <h1>Moringa: uma feira online para quem faz à mão</h1>
+  <p class="lead prose">Um marketplace com dois lados. Quem compra encontra a peça, paga e acompanha o pedido até chegar. Quem faz cadastra as peças e envia os pedidos de um só painel. Cada peça leva a história de quem a fez.</p>
+  <ul class="links">
+    <li><a href="https://moringa-silk.vercel.app/pt">Site no ar</a></li>
+    <li><a href="https://github.com/rayssarrsilva/Moringa">Código no GitHub</a></li>
+    <li><a href="https://www.figma.com/design/o3irY2VOsGjlLt3fiAPTU0">Telas no Figma</a></li>
+  </ul>
+  <dl class="case-meta">
+    <div><dt>Meu papel</dt><dd>Descoberta, UX e UI, desenvolvimento, testes e deploy</dd></div>
+    <div><dt>Quando</dt><dd>Outubro de 2026</dd></div>
+    <div><dt>Stack</dt><dd>Next.js 16, React 19, TypeScript, PostgreSQL (Neon), Drizzle ORM, Auth.js, Stripe (modo de teste), Tailwind CSS, Ipê</dd></div>
+  </dl>
+</div>
+
+<section class="wrap" aria-labelledby="problem">
+  <div class="prose">
+    <h2 id="problem">O problema</h2>
+    <p>Quem faz peças à mão no Brasil, como ceramistas, tecelãs e marceneiros, vende principalmente por mensagens no Instagram, WhatsApp e feiras locais. Funciona, mas custa tempo: as mesmas perguntas de novo e de novo, fotos enviadas uma a uma e nenhuma visão clara de quem pagou e do que falta enviar. Os grandes marketplaces resolvem a logística, mas escondem a pessoa por trás da peça.</p>
+    <p>Escrevi um <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/discovery/BRIEF.md">brief do produto</a>, duas <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/discovery/PERSONAS.md">proto-personas</a> (Dona Lúcia, ceramista, e Marina, compradora) e um <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/discovery/BACKLOG.md">backlog com critérios de aceite</a> antes de desenhar qualquer tela. Os documentos estão em inglês.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="built">
+  <h2 id="built">O que construí</h2>
+  <ul class="prose">
+    <li>Catálogo com busca e filtros por região, material e preço, compartilháveis pela URL.</li>
+    <li>Sacola e Stripe Checkout em modo de teste, com cartão e Pix, confirmado por um webhook assinado.</li>
+    <li>Área de quem compra: pedidos, linha do tempo que atualiza sem recarregar, código de rastreio e avaliações.</li>
+    <li>Área de quem vende: formulário guiado para cadastrar peça, editar ou pausar, gráfico de vendas com versão em tabela e pedidos para enviar.</li>
+    <li>Português e inglês, tema claro e escuro, uso completo pelo teclado e com leitor de tela.</li>
+  </ul>
+  <div class="shots-pair">
+    <figure class="shot">
+      <img src="/assets/img/moringa/piece-desktop.webp" width="960" height="600" loading="lazy" decoding="async" alt="Página da peça: um jarro de barro com preço, estoque, frete, a história de quem fez e avaliações.">
+      <figcaption>Página da peça, com a história de quem fez.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/moringa/checkout-mobile.webp" width="360" height="733" loading="lazy" decoding="async" alt="Checkout no celular: formulário de entrega com nome, e-mail e campo de CEP que preenche o endereço.">
+      <figcaption>Checkout no celular.</figcaption>
+    </figure>
+  </div>
+  <figure class="shot">
+    <img src="/assets/img/moringa/maker-panel-dark.webp" width="960" height="600" loading="lazy" decoding="async" alt="Painel de quem vende no tema escuro: pedidos para enviar, vendas em 30 dias e gráfico semanal de receita.">
+    <figcaption>Painel de quem vende, tema escuro.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap" aria-labelledby="decisions">
+  <div class="prose">
+    <h2 id="decisions">Decisões que valem explicar</h2>
+    <h3>O servidor nunca cobra um preço que a pessoa não viu</h3>
+    <p>A sacola guarda o preço do momento em que a peça entrou. Quando quem vende passou a poder editar preços, isso podia deixar um preço antigo no botão de pagar. Agora a sacola se atualiza e avisa o que mudou, e o servidor se recusa a criar o pagamento se os preços forem diferentes.</p>
+    <h3>Formulários validam ao enviar e depois enquanto a pessoa digita, nunca ao sair do campo</h3>
+    <p>Um erro que aparece quando o campo perde o foco empurra o botão para baixo bem na hora do clique, e o clique erra. Validar ao enviar e depois a cada mudança, como recomenda o GOV.UK, evita isso.</p>
+    <h3>Limite de tentativas que funciona em serverless</h3>
+    <p>Login, checkout e consulta de pedido têm limites guardados no Postgres, então todas as instâncias do servidor compartilham a mesma contagem. O IP é salvo só como hash com salt, seguindo o princípio da LGPD de coletar o mínimo. Se o armazenamento falhar, a requisição passa: um soluço no banco não pode trancar todo mundo do lado de fora.</p>
+    <h3>Uma Content Security Policy rígida</h3>
+    <p>Cada requisição recebe um nonce novo, e só rodam os scripts que o carregam ou que foram carregados por eles. Com os outros cabeçalhos, o site no ar tem <a href="https://developer.mozilla.org/en-US/observatory/analyze?host=moringa-silk.vercel.app">A+ no Mozilla Observatory</a>.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="quality">
+  <h2 id="quality">Qualidade, medida</h2>
+  <p class="section-lead">Medido no site no ar e em todo pull request. Última verificação em 22 de outubro de 2026.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Área</th><th scope="col">Resultado</th><th scope="col">Como é verificado</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">PageSpeed Insights</th><td><a href="https://pagespeed.web.dev/analysis/https-moringa-silk-vercel-app-en/ehy81lunrc?form_factor=desktop">100 · 100 · 100 · 100</a></td><td>Performance, acessibilidade, boas práticas e SEO, celular e computador; Lighthouse CI em todo pull request</td></tr>
+        <tr><th scope="row">Acessibilidade</th><td>0 violações no axe · WCAG 2.2 AA</td><td>axe em todas as páginas nos dois temas, testes de teclado e foco no Playwright</td></tr>
+        <tr><th scope="row">Cabeçalhos de segurança</th><td><a href="https://developer.mozilla.org/en-US/observatory/analyze?host=moringa-silk.vercel.app">Mozilla Observatory A+</a></td><td>Verificação no site no ar</td></tr>
+        <tr><th scope="row">Varredura de vulnerabilidades</th><td>OWASP ZAP: 0 alta, 0 média, 0 baixa</td><td>Varredura base em todo pull request</td></tr>
+        <tr><th scope="row">Testes</th><td>179 unitários e de integração · 158 ponta a ponta</td><td>Vitest, PGlite (Postgres real em memória), Playwright no celular e no computador</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="qa">
+  <div class="prose">
+    <h2 id="qa">O ciclo de QA</h2>
+    <p>Depois de construir, troquei de chapéu e testei o Moringa como uma analista de QA faria, seguindo um <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/TEST-PLAN.md">plano de teste</a>. Todas as 15 histórias Must e Should têm <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/TEST-CASES.md">casos de teste</a>: 58 no total, 49 automatizados e rodando em todo pull request.</p>
+    <p>Uma sessão exploratória achou o <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/BUG-REPORTS.md">BUG-001</a>, de severidade alta: depois que quem vende editava um preço, a sacola e o botão de pagar ainda podiam mostrar o antigo. Foi corrigido com testes de regressão em três níveis: unitário, integração e ponta a ponta.</p>
+    <p>O mesmo ciclo deixou o pipeline mais rápido: agora um único build é compartilhado pelos jobs de ponta a ponta, Lighthouse e ZAP, e a suíte ponta a ponta roda em dois shards em paralelo. <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/TEST-SUMMARY.md">Relatório final de testes</a> (em inglês).</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="learned">
+  <div class="prose">
+    <h2 id="learned">O que aprendi</h2>
+    <ul>
+      <li>Perguntar "por que isso confia nesse número?" levou de um teste de adulteração inofensivo a um bug real.</li>
+      <li>Uma funcionalidade nova pode tornar falsa uma suposição antiga. Agora toda história nova passa por uma pergunta: "o que isso deixa de ser verdade?".</li>
+      <li>Registrar alarmes falsos poupa a próxima pessoa da mesma hora de investigação.</li>
+    </ul>
+    <h2>Experimente</h2>
+    <p>Sem cadastro: cada conta de demonstração é um clique. Pague com o cartão de teste do Stripe <code>4242 4242 4242 4242</code>, qualquer data futura e qualquer CVC. <a href="https://moringa-silk.vercel.app/pt">Abrir o Moringa</a>.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap"><p>© 2026 Rayssa Roberta Rodrigues Silva · HTML e CSS puros · testado com Lighthouse · <a href="https://github.com/rayssarrsilva/portfolio">Código</a></p></div>
+</footer>
+</body>
+</html>

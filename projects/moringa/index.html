@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Moringa case study · Rayssa Roberta</title>
+<meta name="description" content="How I built and tested Moringa, a Next.js marketplace for Brazilian makers: 100 on PageSpeed Insights, A+ on Mozilla Observatory, 337 automated tests.">
+<link rel="canonical" href="https://www.portfoliorayssarrsilva.site/projects/moringa/">
+<link rel="alternate" hreflang="en" href="https://www.portfoliorayssarrsilva.site/projects/moringa/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.portfoliorayssarrsilva.site/pt/projetos/moringa/">
+<link rel="alternate" hreflang="x-default" href="https://www.portfoliorayssarrsilva.site/projects/moringa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Moringa case study · Rayssa Roberta">
+<meta property="og:description" content="How I built and tested Moringa, a Next.js marketplace for Brazilian makers: 100 on PageSpeed Insights, A+ on Mozilla Observatory, 337 automated tests.">
+<meta property="og:url" content="https://www.portfoliorayssarrsilva.site/projects/moringa/">
+<meta property="og:image" content="https://www.portfoliorayssarrsilva.site/assets/img/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/source-serif-4-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Rayssa Roberta</a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/#projects">Projects</a></li><li><a href="/#how-i-work">How I work</a></li><li><a href="/#about">About</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+    <div class="tools">
+      <a class="lang" href="/pt/projetos/moringa/" hreflang="pt-BR" lang="pt-BR">Português</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark theme"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page-intro">
+  <a class="back" href="/#projects">← All projects</a>
+  <p class="eyebrow">Case study</p>
+  <h1>Moringa: an online fair for Brazilian makers</h1>
+  <p class="lead prose">A marketplace with two sides. Buyers find a piece, pay and follow the order until it arrives. Makers list pieces and ship orders from one panel. Every piece carries the story of who made it.</p>
+  <ul class="links">
+    <li><a href="https://moringa-silk.vercel.app/en">Live site</a></li>
+    <li><a href="https://github.com/rayssarrsilva/Moringa">Code on GitHub</a></li>
+    <li><a href="https://www.figma.com/design/o3irY2VOsGjlLt3fiAPTU0">Figma screens</a></li>
+  </ul>
+  <dl class="case-meta">
+    <div><dt>My role</dt><dd>Discovery, UX and UI, development, testing and deploy</dd></div>
+    <div><dt>When</dt><dd>October 2026</dd></div>
+    <div><dt>Stack</dt><dd>Next.js 16, React 19, TypeScript, PostgreSQL (Neon), Drizzle ORM, Auth.js, Stripe (test mode), Tailwind CSS, Ipê</dd></div>
+  </dl>
+</div>
+
+<section class="wrap" aria-labelledby="problem">
+  <div class="prose">
+    <h2 id="problem">The problem</h2>
+    <p>People who make things by hand in Brazil, like ceramists, weavers and woodworkers, mostly sell through Instagram messages, WhatsApp and local fairs. It works, but it costs them time: the same questions again and again, photos sent one by one, and no clear view of who paid and what still needs to ship. Large marketplaces solve the logistics but hide the person behind the piece.</p>
+    <p>I wrote a <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/discovery/BRIEF.md">product brief</a>, two <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/discovery/PERSONAS.md">proto-personas</a> (Dona Lúcia, a ceramist, and Marina, a buyer) and a <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/discovery/BACKLOG.md">backlog with acceptance criteria</a> before designing any screen.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="built">
+  <h2 id="built">What I built</h2>
+  <ul class="prose">
+    <li>Catalog with search and filters by region, material and price, shareable in the URL.</li>
+    <li>Bag and Stripe Checkout in test mode, with card and Pix, confirmed by a signed webhook.</li>
+    <li>Buyer area: orders, a timeline that updates without reloading, tracking codes and reviews.</li>
+    <li>Maker area: a guided form to list a piece, edit or pause it, a sales chart with a table view, and orders to ship.</li>
+    <li>Portuguese and English, light and dark theme, usable with a keyboard and a screen reader.</li>
+  </ul>
+  <div class="shots-pair">
+    <figure class="shot">
+      <img src="/assets/img/moringa/piece-desktop.webp" width="960" height="600" loading="lazy" decoding="async" alt="Piece page: a clay jar with price, stock, shipping, the maker story and reviews.">
+      <figcaption>Piece page, with the story of who made it.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/moringa/checkout-mobile.webp" width="360" height="733" loading="lazy" decoding="async" alt="Checkout on a phone: the delivery form with name, email and a postal code field that fills in the address.">
+      <figcaption>Checkout on a phone.</figcaption>
+    </figure>
+  </div>
+  <figure class="shot">
+    <img src="/assets/img/moringa/maker-panel-dark.webp" width="960" height="600" loading="lazy" decoding="async" alt="Maker panel in the dark theme: orders to ship, sales in 30 days and a weekly revenue chart.">
+    <figcaption>Maker panel, dark theme.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap" aria-labelledby="decisions">
+  <div class="prose">
+    <h2 id="decisions">Decisions worth explaining</h2>
+    <h3>The server never charges a price the buyer did not see</h3>
+    <p>The bag keeps the price from the moment a piece was added. When makers became able to edit prices, that could leave an old price on the pay button. Now the bag updates itself and says what changed, and the server refuses to create a payment if the prices differ.</p>
+    <h3>Forms check on submit, then while typing, never on blur</h3>
+    <p>An error that appears when a field loses focus pushes the button down while the person is clicking it, and the click misses. Validating on submit and then on each change, as GOV.UK recommends, avoids that.</p>
+    <h3>Rate limits that hold on serverless</h3>
+    <p>Sign-in, checkout and order lookup have limits stored in Postgres, so every server instance shares the same count. The IP is saved only as a salted hash, following the LGPD principle of collecting as little as possible. If the store fails, the request goes through: a database hiccup should not lock everyone out.</p>
+    <h3>A strict Content Security Policy</h3>
+    <p>Each request gets a new nonce, and only scripts carrying it, or loaded by them, can run. With the other headers, the live site scores <a href="https://developer.mozilla.org/en-US/observatory/analyze?host=moringa-silk.vercel.app">A+ on Mozilla Observatory</a>.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="quality">
+  <h2 id="quality">Quality, measured</h2>
+  <p class="section-lead">Measured on the live site and on every pull request. Last checked on October 22, 2026.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Result</th><th scope="col">How it is checked</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">PageSpeed Insights</th><td><a href="https://pagespeed.web.dev/analysis/https-moringa-silk-vercel-app-en/ehy81lunrc?form_factor=desktop">100 · 100 · 100 · 100</a></td><td>Performance, accessibility, best practices and SEO, mobile and desktop; Lighthouse CI on every pull request</td></tr>
+        <tr><th scope="row">Accessibility</th><td>0 axe violations · WCAG 2.2 AA</td><td>axe on every page in both themes, keyboard and focus tests in Playwright</td></tr>
+        <tr><th scope="row">Security headers</th><td><a href="https://developer.mozilla.org/en-US/observatory/analyze?host=moringa-silk.vercel.app">Mozilla Observatory A+</a></td><td>Scanner run on the live site</td></tr>
+        <tr><th scope="row">Vulnerability scan</th><td>OWASP ZAP: 0 high, 0 medium, 0 low</td><td>Baseline scan on every pull request</td></tr>
+        <tr><th scope="row">Tests</th><td>179 unit and integration · 158 end-to-end</td><td>Vitest, PGlite (real Postgres in memory), Playwright on mobile and desktop</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="qa">
+  <div class="prose">
+    <h2 id="qa">The QA cycle</h2>
+    <p>After the build, I switched hats and tested Moringa as a QA analyst would, following a <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/TEST-PLAN.md">test plan</a>. All 15 Must and Should stories have <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/TEST-CASES.md">test cases</a>: 58 in total, 49 automated and run on every pull request.</p>
+    <p>An exploratory session found <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/BUG-REPORTS.md">BUG-001</a>, rated High: after a maker edited a price, the bag and the pay button could still show the old one. It was fixed with regression tests at three levels, unit, integration and end-to-end.</p>
+    <p>The same cycle made the pipeline faster: one build is now shared by the end-to-end, Lighthouse and ZAP jobs, and the end-to-end suite runs in two parallel shards. <a href="https://github.com/rayssarrsilva/Moringa/blob/main/docs/qa/TEST-SUMMARY.md">Test summary report</a>.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="learned">
+  <div class="prose">
+    <h2 id="learned">What I learned</h2>
+    <ul>
+      <li>Asking "why does this trust that number?" led from a harmless tampering test to a real bug.</li>
+      <li>A new feature can make an old assumption false. New stories now get a short "what does this make untrue?" check.</li>
+      <li>Writing down false alarms saves the next person the same hour of investigation.</li>
+    </ul>
+    <h2>Try it</h2>
+    <p>No sign-up needed: each demo account is one click. Pay with the Stripe test card <code>4242 4242 4242 4242</code>, any future date and any CVC. <a href="https://moringa-silk.vercel.app/en">Open Moringa</a>.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap"><p>© 2026 Rayssa Roberta Rodrigues Silva · Plain HTML and CSS · Lighthouse-tested · <a href="https://github.com/rayssarrsilva/portfolio">Source</a></p></div>
+</footer>
+</body>
+</html>
