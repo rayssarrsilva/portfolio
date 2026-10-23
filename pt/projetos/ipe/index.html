@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Estudo de caso do design system Ipê · Rayssa Roberta</title>
+<meta name="description" content="Como desenhei, construí, testei e publiquei o Ipê, um design system React acessível com tokens sincronizados com o Figma.">
+<link rel="canonical" href="https://www.portfoliorayssarrsilva.site/pt/projetos/ipe/">
+<link rel="alternate" hreflang="en" href="https://www.portfoliorayssarrsilva.site/projects/ipe/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.portfoliorayssarrsilva.site/pt/projetos/ipe/">
+<link rel="alternate" hreflang="x-default" href="https://www.portfoliorayssarrsilva.site/projects/ipe/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Estudo de caso do design system Ipê · Rayssa Roberta">
+<meta property="og:description" content="Como desenhei, construí, testei e publiquei o Ipê, um design system React acessível com tokens sincronizados com o Figma.">
+<meta property="og:url" content="https://www.portfoliorayssarrsilva.site/pt/projetos/ipe/">
+<meta property="og:image" content="https://www.portfoliorayssarrsilva.site/assets/img/og-pt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/source-serif-4-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/pt/">Rayssa Roberta</a>
+    <nav class="site-nav" aria-label="Principal"><ul><li><a href="/pt/#projetos">Projetos</a></li><li><a href="/pt/#como-trabalho">Como trabalho</a></li><li><a href="/pt/#sobre">Sobre</a></li><li><a href="/pt/#contato">Contato</a></li></ul></nav>
+    <div class="tools">
+      <a class="lang" href="/projects/ipe/" hreflang="en" lang="en">English</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Tema escuro"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page-intro">
+  <a class="back" href="/pt/#projetos">← Todos os projetos</a>
+  <p class="eyebrow">Estudo de caso</p>
+  <h1>Ipê: um design system acessível para React</h1>
+  <p class="lead prose">11 componentes React cujas cores, tipografia e espaçamentos vêm dos mesmos design tokens usados no Figma. Publicado no npm, documentado num Storybook bilíngue e base do Moringa.</p>
+  <ul class="links">
+    <li><a href="https://rayssarrsilva.github.io/Ipe/?path=/docs/introduction--docs">Storybook</a></li>
+    <li><a href="https://www.npmjs.com/package/@rayssarrsilva/ipe">npm</a></li>
+    <li><a href="https://www.figma.com/design/o3irY2VOsGjlLt3fiAPTU0">Figma</a></li>
+    <li><a href="https://github.com/rayssarrsilva/Ipe">Código no GitHub</a></li>
+  </ul>
+  <dl class="case-meta">
+    <div><dt>Meu papel</dt><dd>Design no Figma, tokens, componentes, documentação, testes e versões</dd></div>
+    <div><dt>Quando</dt><dd>Outubro de 2026</dd></div>
+    <div><dt>Stack</dt><dd>React, TypeScript, Vite, Storybook, Style Dictionary, Tokens Studio, Vitest, axe-core, Changesets</dd></div>
+  </dl>
+</div>
+
+<section class="wrap" aria-labelledby="why">
+  <div class="prose">
+    <h2 id="why">Por que criar um</h2>
+    <p>Eu queria que design e código lessem cor, tipografia e espaçamento do mesmo lugar. No Ipê, os tokens ficam em JSON, sincronizam com o Figma pelo Tokens Studio e são compilados pelo Style Dictionary em variáveis CSS com os mesmos nomes das variáveis do Figma. Uma mudança num lugar chega aos dois.</p>
+    <h2>O que tem dentro</h2>
+    <ul>
+      <li>Badge, Button, Checkbox, Dialog, DropdownMenu, Input, Switch, Tabs, Textarea, Toast, Tooltip.</li>
+      <li>Temas claro e escuro a partir de tokens semânticos, seguindo o sistema ou um atributo data-theme.</li>
+      <li>CSS puro, com um preset opcional para Tailwind CSS v4.</li>
+      <li>Storybook que alterna cada story entre inglês e português, e entre claro e escuro.</li>
+    </ul>
+  </div>
+  <figure class="shot">
+    <img src="/assets/img/projects/ipe.webp" width="960" height="600" loading="lazy" decoding="async" alt="Storybook do Ipê: página de documentação do Button com variantes e controles.">
+    <figcaption>Documentação do Button no Storybook.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap" aria-labelledby="testing">
+  <div class="prose">
+    <h2 id="testing">Como é testado</h2>
+    <p>Cada story roda num Chromium de verdade em todo pull request, no claro e no escuro, com seu teste de interação e uma auditoria do axe-core que inclui contraste de cor. Todo par de cores é conferido com a WCAG 2.2, incluindo a regra de 3:1 para bordas de campos de formulário.</p>
+    <h2>O ciclo de QA depois da 1.0</h2>
+    <p>Depois da primeira versão, testei o Ipê com um <a href="https://github.com/rayssarrsilva/Ipe/blob/main/qa/TEST-PLAN.md">plano de teste</a> e <a href="https://github.com/rayssarrsilva/Ipe/blob/main/qa/TEST-CASES.md">24 casos de teste</a>, incluindo leitor de tela (NVDA), zoom e alto contraste do Windows. O resultado foram <a href="https://github.com/rayssarrsilva/Ipe/blob/main/qa/BUG-REPORTS.md">6 relatórios de bug</a>, entre eles:</p>
+    <ul>
+      <li>O Switch sumia no alto contraste do Windows.</li>
+      <li>A aba selecionada ficava igual às outras.</li>
+      <li>O contador do Textarea era lido como "9/280", sem contexto.</li>
+      <li>O Checkbox tinha 22px, abaixo do tamanho mínimo de alvo de 24px (WCAG 2.5.8).</li>
+    </ul>
+    <p>Cada correção saiu na versão 1.0.1 com um teste de regressão, para não voltar sem ninguém perceber.</p>
+  </div>
+  <div class="shots-pair even">
+    <figure class="shot">
+      <img src="/assets/img/ipe/switch-forced-colors-before.webp" width="480" height="130" loading="lazy" decoding="async" alt="Antes: no alto contraste do Windows, dois Switches ficam invisíveis; só os rótulos aparecem.">
+      <figcaption>Antes: o Switch fica invisível no alto contraste.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/ipe/switch-forced-colors-after.webp" width="480" height="130" loading="lazy" decoding="async" alt="Depois: os dois Switches aparecem, com os estados ligado e desligado.">
+      <figcaption>Depois da correção na 1.0.1.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="releases">
+  <div class="prose">
+    <h2 id="releases">Versões</h2>
+    <p>As versões seguem o versionamento semântico, com o Changesets escrevendo o changelog. A 2.0.0 foi uma versão major porque removeu primitivas de cor antigas em favor de uma paleta neutra; ela também marcou os componentes como client components para funcionarem dentro de Server Components do Next.js.</p>
+    <p><a href="https://github.com/rayssarrsilva/Ipe/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://github.com/rayssarrsilva/Ipe/blob/main/ACCESSIBILITY.md">Notas de acessibilidade</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap"><p>© 2026 Rayssa Roberta Rodrigues Silva · HTML e CSS puros · testado com Lighthouse · <a href="https://github.com/rayssarrsilva/portfolio">Código</a></p></div>
+</footer>
+</body>
+</html>
