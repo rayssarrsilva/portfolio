@@ -394,7 +394,8 @@ main > section + section {
 }
 
 [data-for='frontend'] .angle-qa,
-[data-for='qa'] .angle-frontend {
+[data-for='qa'] .angle-frontend,
+[data-for='frontend'] [data-only='qa'] {
   display: none;
 }
 
