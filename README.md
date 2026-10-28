@@ -13,7 +13,7 @@ My portfolio as a frontend developer with a QA mindset: the projects I built, ho
 - Home page in English and Portuguese, with the four projects I show to recruiters: Moringa, Ipê, DietGreen and Battleship.
 - A "Hiring for?" switch: recruiters for frontend or QA roles see the part of each project that matters to them. A link like `/?for=qa` opens with that view already chosen.
 - Case studies for [Moringa](https://www.portfoliorayssarrsilva.site/projects/moringa/) and [Ipê](https://www.portfoliorayssarrsilva.site/projects/ipe/).
-- Certificates, and my résumé as a PDF in each language.
+- Certificates, and my resume as a PDF in each language.
 - Light and dark theme that follows the system until the visitor chooses.
 
 ## Built with
@@ -56,7 +56,7 @@ certificates/           Certificates (English)
 assets/css/site.css     All styles
 assets/js/theme.js      Applies the saved theme before the first paint
 assets/js/site.js       Theme toggle and the "Hiring for?" switch
-assets/resume/          Résumé PDFs
+assets/resume/          Resume PDFs
 ```
 
 ## Credits
@@ -67,4 +67,4 @@ assets/resume/          Résumé PDFs
 
 rayssarrsilva1@gmail.com · [LinkedIn](https://www.linkedin.com/in/rayssa-r-14936622a/) · [GitHub](https://github.com/rayssarrsilva)
 
-The text, photos and résumé are mine; please do not reuse them.
+The text, photos and resume are mine; please do not reuse them.
