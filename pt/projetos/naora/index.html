@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Estudo de caso Naora · Rayssa Roberta</title>
+<meta name="description" content="Como construí e testei a Naora, agenda online em Next.js em que o sinal no Pix garante o horário: 169 testes automatizados, nenhum horário duplicado e modelo freemium no Mercado Pago.">
+<link rel="canonical" href="https://www.portfoliorayssarrsilva.site/pt/projetos/naora/">
+<link rel="alternate" hreflang="en" href="https://www.portfoliorayssarrsilva.site/projects/naora/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.portfoliorayssarrsilva.site/pt/projetos/naora/">
+<link rel="alternate" hreflang="x-default" href="https://www.portfoliorayssarrsilva.site/projects/naora/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Estudo de caso Naora · Rayssa Roberta">
+<meta property="og:description" content="Como construí e testei a Naora, agenda online em Next.js em que o sinal no Pix garante o horário: 169 testes automatizados, nenhum horário duplicado e modelo freemium no Mercado Pago.">
+<meta property="og:url" content="https://www.portfoliorayssarrsilva.site/pt/projetos/naora/">
+<meta property="og:image" content="https://www.portfoliorayssarrsilva.site/assets/img/og-pt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/source-serif-4-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/pt/">Rayssa Roberta</a>
+    <nav class="site-nav" aria-label="Principal"><ul><li><a href="/pt/#projetos">Projetos</a></li><li><a href="/pt/#como-trabalho">Como trabalho</a></li><li><a href="/pt/#sobre">Sobre</a></li><li><a href="/pt/#contato">Contato</a></li></ul></nav>
+    <div class="tools">
+      <a class="lang" href="/projects/naora/" hreflang="en" lang="en">English</a>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Tema escuro"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page-intro">
+  <a class="back" href="/pt/#projetos">← Todos os projetos</a>
+  <p class="eyebrow">Estudo de caso</p>
+  <h1>Naora: agenda online em que o sinal no Pix garante o horário</h1>
+  <p class="lead prose">Um sistema de agendamento para salões, barbearias e estúdios de beleza. A cliente escolhe o serviço, o dia e o horário, e o horário só fica dela depois de um sinal pequeno pago no Pix. O negócio ganha um painel, e o sinal cai direto na conta do Mercado Pago dele.</p>
+  <ul class="links">
+    <li><a href="https://naora.onrender.com/pt">Site no ar</a></li>
+    <li><a href="https://github.com/rayssarrsilva/Naora">Código no GitHub</a></li>
+    <li><a href="https://www.figma.com/design/o3irY2VOsGjlLt3fiAPTU0">Telas no Figma</a></li>
+  </ul>
+  <dl class="case-meta">
+    <div><dt>Meu papel</dt><dd>Produto, UX e UI, desenvolvimento, pagamentos, testes e deploy</dd></div>
+    <div><dt>Quando</dt><dd>Outubro e novembro de 2026</dd></div>
+    <div><dt>Stack</dt><dd>Next.js 16, React 19, TypeScript, PostgreSQL (Neon), Prisma 7, Auth.js v5, Mercado Pago (Pix, OAuth, assinaturas), Tailwind CSS, Ipê, Jest, Cypress, Docker no Render</dd></div>
+  </dl>
+</div>
+
+<section class="wrap" aria-labelledby="problema">
+  <div class="prose">
+    <h2 id="problema">O problema</h2>
+    <p>Pequenos negócios de beleza no Brasil marcam clientes pelo WhatsApp. A cliente confirma, o horário fica guardado, outra pessoa é recusada, e ela não aparece. A cadeira fica vazia e aquela hora se perde.</p>
+    <p>O sinal muda o compromisso: quem paga aparece, e quem não paga libera o horário para outra pessoa. O Pix deixa esse sinal instantâneo e barato, então tudo acontece no celular em menos de um minuto.</p>
+    <p>A Naora também é um micro-SaaS de verdade, feito para rodar em produção com custo zero. No plano Grátis ela fica com 15% de cada sinal; o plano Pro custa R$ 39,90 por mês, sem taxa.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="construi">
+  <h2 id="construi">O que eu construí</h2>
+  <ul class="prose">
+    <li>Uma página pública para cada negócio e o agendamento em três passos: dia, horário, dados. Dias e horários são links comuns, então a página funciona antes do JavaScript carregar e um horário pode ser compartilhado.</li>
+    <li>O sinal no Pix pelo Mercado Pago: QR Code e código copia e cola, reserva do horário por 30 minutos e uma página que confirma sozinha quando o pagamento cai.</li>
+    <li>O painel do negócio: serviços com preço e sinal, horários de funcionamento, próximos agendamentos com link para o WhatsApp, Mercado Pago conectado por OAuth e o plano.</li>
+    <li>Cobrança freemium: os 15% passam pela divisão de pagamento do Mercado Pago (application fee), e o Pro é uma assinatura do Mercado Pago.</li>
+    <li>Demo com um clique e Pix simulado, login com Google e área da conta fixa no topo, para ninguém ficar preso na demo.</li>
+    <li>Português e inglês, tema claro e escuro, uso por teclado e leitor de tela.</li>
+  </ul>
+  <div class="shots-pair">
+    <figure class="shot">
+      <img src="/assets/img/naora/booking-mobile.webp" width="360" height="779" loading="lazy" decoding="async" alt="Página de agendamento no celular: o serviço Escova modelada, 60 minutos, R$ 45, e a grade das próximas duas semanas com os dias livres em destaque.">
+      <figcaption>Escolhendo o dia no celular.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/naora/pix-mobile-dark.webp" width="360" height="779" loading="lazy" decoding="async" alt="Página do sinal no tema escuro: o título “Falta só o sinal”, o QR Code do Pix e o código copia e cola da demo.">
+      <figcaption>O sinal no Pix, tema escuro.</figcaption>
+    </figure>
+  </div>
+  <figure class="shot">
+    <img src="/assets/img/naora/owner-panel.webp" width="960" height="600" loading="lazy" decoding="async" alt="Painel do Studio Ana Luz: o endereço da página pública e os próximos agendamentos, cada um com o nome da cliente e o WhatsApp.">
+    <figcaption>Painel do negócio, com os agendamentos que já pagaram o sinal.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap" aria-labelledby="decisoes">
+  <div class="prose">
+    <h2 id="decisoes">Decisões que valem explicar</h2>
+    <h3>O mesmo horário nunca é vendido duas vezes</h3>
+    <p>Duas clientes podem tocar no mesmo horário no mesmo segundo. A conferência e a gravação rodam numa transação que segura um advisory lock do Postgres para aquele negócio: o segundo pedido espera, vê o primeiro agendamento e recebe o aviso de que o horário acabou de ser ocupado. Um teste de integração dispara 8 pedidos ao mesmo tempo e espera que só um vença.</p>
+    <h3>O webhook só diz “confira de novo”</h3>
+    <p>Um aviso do Mercado Pago nunca confirma um agendamento sozinho. A Naora lê o pagamento de volta no Mercado Pago com o token do próprio negócio e só confirma quando ele diz aprovado. Um aviso forjado, ou enviado ao endereço de outro negócio, não muda nada. Cada cobrança usa o id do agendamento como chave de idempotência.</p>
+    <h3>Pagamento atrasado é registrado, não vira horário duplicado</h3>
+    <p>Se a cliente paga depois do fim da reserva e outra pessoa já pegou o horário, o pagamento fica salvo e aparece para o dono, e nenhum segundo agendamento é criado.</p>
+    <h3>Os horários seguem o fuso do negócio</h3>
+    <p>A grade é montada no fuso horário do negócio, não no do servidor, que roda nos Estados Unidos. Testes unitários cobrem São Paulo e Nova York, inclusive na troca do horário de verão.</p>
+    <h3>Sem sinal, sem agendamento online</h3>
+    <p>Uma versão inicial deixava um negócio sem Mercado Pago receber agendamentos com o sinal “combinado direto com o negócio”, e a taxa da plataforma simplesmente sumia. Agora uma regra decide quando um serviço pode ser agendado online, e o servidor, a página pública e o painel seguem a mesma regra.</p>
+    <h3>Segredos continuam secretos</h3>
+    <p>Os tokens do Mercado Pago ficam guardados com criptografia AES-256-GCM e são renovados antes de vencer. O state do OAuth é assinado com HMAC e amarrado a um nonce num cookie HttpOnly. Cada página recebe um nonce novo na Content Security Policy.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="qualidade">
+  <h2 id="qualidade">Qualidade, medida</h2>
+  <p class="section-lead">Conferido a cada pull request. Última conferência em 4 de novembro de 2026.</p>
+  <div class="table-wrap" tabindex="0">
+    <table>
+      <thead><tr><th scope="col">Área</th><th scope="col">Resultado</th><th scope="col">Como é conferido</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Testes</th><td>107 unitários · 38 de integração · 24 de ponta a ponta</td><td>Jest, PGlite (Postgres de verdade em memória), Cypress contra o build de produção</td></tr>
+        <tr><th scope="row">Acessibilidade</th><td>0 violações no axe · WCAG 2.2 AA</td><td>cypress-axe em português e inglês, claro e escuro, e numa tela de 320px</td></tr>
+        <tr><th scope="row">Concorrência</th><td>1 de 8 agendamentos simultâneos vence</td><td>Teste de integração com a transação e o lock de verdade</td></tr>
+        <tr><th scope="row">Cabeçalhos de segurança</th><td>CSP com nonce, HSTS, nosniff, frame-ancestors none</td><td>Teste de ponta a ponta que lê os cabeçalhos da resposta</td></tr>
+        <tr><th scope="row">Código</th><td>TypeScript strict, 0 avisos do ESLint</td><td>Typecheck e lint a cada pull request</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="qa">
+  <div class="prose">
+    <h2 id="qa">O ciclo de QA</h2>
+    <p>A Naora está no ar, e o ciclo de QA está acontecendo agora. O plano de testes tem 38 casos em 11 módulos, uma matriz de risco que coloca o dinheiro em primeiro lugar e critérios claros de entrada, saída e suspensão.</p>
+    <p>As rodadas vão do seguro ao real: primeiro a demo e as contas, depois um Pix de verdade entre duas contas do Mercado Pago para conferir os 15% no extrato, depois a assinatura Pro e, por fim, o feedback de pessoas de fora num beta aberto.</p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="aprendi">
+  <div class="prose">
+    <h2 id="aprendi">O que eu aprendi</h2>
+    <ul>
+      <li>Uma regra de negócio pode se esconder numa frase simpática. “O sinal é combinado direto com o negócio” parecia gentil e tirava a receita sem ninguém perceber.</li>
+      <li>Atrás de um proxy, o servidor não sabe o próprio endereço. Os redirecionamentos passaram a usar o endereço público do site, depois que o login com Google mandou pessoas para um endereço interno.</li>
+      <li>Uma mudança visual pequena pode mudar o que um teste enxerga. O topo fixo fez o Cypress tratar o link “Pular para o conteúdo” de outro jeito, e a correção certa estava na página, não no teste.</li>
+    </ul>
+    <h2>Teste você</h2>
+    <p>Sem cadastro: clique em “Testar a demo” no topo, crie um salão de mentira e agende como cliente. O Pix da demo é simulado e nada é cobrado. Ela roda no plano gratuito do Render, então a primeira visita pode levar cerca de um minuto. <a href="https://naora.onrender.com/pt">Abrir a Naora</a>.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap"><p>© 2026 Rayssa Roberta Rodrigues Silva · HTML e CSS puros · testado com Lighthouse · <a href="https://github.com/rayssarrsilva/portfolio">Código</a></p></div>
+</footer>
+</body>
+</html>

@@ -10,9 +10,9 @@ Meu portfólio como desenvolvedora frontend com foco em qualidade: os projetos q
 
 ## O que tem aqui
 
-- Página inicial em português e inglês, com os quatro projetos que mostro para recrutadores: Moringa, Ipê, DietGreen e Batalha Naval.
+- Página inicial em português e inglês, com os cinco projetos que mostro para recrutadores: Naora, Moringa, Ipê, DietGreen e Batalha Naval.
 - Um seletor "Contratando para?": quem recruta para frontend ou QA vê a parte de cada projeto que importa para a vaga. Um link como `/pt/?for=qa` já abre com essa visão escolhida.
-- Estudos de caso do [Moringa](https://www.portfoliorayssarrsilva.site/pt/projetos/moringa/) e do [Ipê](https://www.portfoliorayssarrsilva.site/pt/projetos/ipe/).
+- Estudos de caso da [Naora](https://www.portfoliorayssarrsilva.site/pt/projetos/naora/), do [Moringa](https://www.portfoliorayssarrsilva.site/pt/projetos/moringa/) e do [Ipê](https://www.portfoliorayssarrsilva.site/pt/projetos/ipe/).
 - Certificados e o currículo em PDF em cada idioma.
 - Tema claro e escuro, que segue o sistema até a pessoa escolher.
 
@@ -33,7 +33,7 @@ Em todo pull request, o [GitHub Actions](./.github/workflows/ci.yml) roda:
 | --- | --- | --- |
 | HTML | [html-validate](https://html-validate.org) | qualquer erro |
 | Links internos e âncoras | [lychee](https://lychee.cli.rs) | qualquer link quebrado |
-| Performance, acessibilidade, boas práticas, SEO | [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci), 4 páginas × 3 execuções | performance abaixo de 95, qualquer outra categoria abaixo de 100 |
+| Performance, acessibilidade, boas práticas, SEO | [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci), 5 páginas × 3 execuções | performance abaixo de 95, qualquer outra categoria abaixo de 100 |
 
 Os links externos são conferidos toda segunda-feira. Antes de publicar, cada página também foi testada com o axe nos dois temas, em 320px e 1280px, e pelo teclado.
 
