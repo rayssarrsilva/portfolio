@@ -10,9 +10,9 @@ My portfolio as a frontend developer with a QA mindset: the projects I built, ho
 
 ## What is inside
 
-- Home page in English and Portuguese, with the four projects I show to recruiters: Moringa, Ipê, DietGreen and Battleship.
+- Home page in English and Portuguese, with the five projects I show to recruiters: Naora, Moringa, Ipê, DietGreen and Battleship.
 - A "Hiring for?" switch: recruiters for frontend or QA roles see the part of each project that matters to them. A link like `/?for=qa` opens with that view already chosen.
-- Case studies for [Moringa](https://www.portfoliorayssarrsilva.site/projects/moringa/) and [Ipê](https://www.portfoliorayssarrsilva.site/projects/ipe/).
+- Case studies for [Naora](https://www.portfoliorayssarrsilva.site/projects/naora/), [Moringa](https://www.portfoliorayssarrsilva.site/projects/moringa/) and [Ipê](https://www.portfoliorayssarrsilva.site/projects/ipe/).
 - Certificates, and my resume as a PDF in each language.
 - Light and dark theme that follows the system until the visitor chooses.
 
@@ -33,7 +33,7 @@ On every pull request, [GitHub Actions](./.github/workflows/ci.yml) runs:
 | --- | --- | --- |
 | HTML | [html-validate](https://html-validate.org) | any error |
 | Internal links and anchors | [lychee](https://lychee.cli.rs) | any broken link |
-| Performance, accessibility, best practices, SEO | [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci), 4 pages × 3 runs | performance below 95, any other category below 100 |
+| Performance, accessibility, best practices, SEO | [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci), 5 pages × 3 runs | performance below 95, any other category below 100 |
 
 External links are checked every Monday. Before release, every page was also tested with axe in both themes at 320px and 1280px, and with the keyboard.
 
